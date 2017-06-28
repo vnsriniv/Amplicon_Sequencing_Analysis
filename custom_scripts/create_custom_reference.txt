@@ -1,0 +1,3 @@
+pcr.seqs(fasta=ecoli_16S_seq.fasta, oligos=primers.fasta, processors=8)
+align.seqs(fasta=ecoli_16S_seq.pcr.fasta, reference=silva.nr_v123.align)
+summary.seqs(fasta=ecoli_16S_seq.pcr.align.fasta)
