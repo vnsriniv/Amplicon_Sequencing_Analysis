@@ -4,9 +4,14 @@
 
 #All the operations performed here are from the project directory. So navigate first to the project directory before running this script
 
+#################CHANGE THIS####################################
+wdir=${HOME}/seq_analysis
+inputdir=/scratch/vnsriniv/input_files_test/
+################################################################
+
 #Create necessary folders
 parent=`pwd`	#Store the project directory
-mkdir ${HOME}/mothur/fastqc_files/	#Create a folder for fastqc
+mkdir ${wdir}/fastqc_files/	#Create a folder for fastqc
 
 #Remove -randomnumber from folder names
 for folder in *; do
@@ -24,20 +29,20 @@ for foldername in $subdirs; do
 		newfilename=${foldername}_${name3}.fastq.gz	#Attach the foldername to R1/R2 and create new file name
 		mv ${parent}/${foldername}/$filename ${parent}/${foldername}/$newfilename #Rename the old file with the new file name
 		gunzip -d ${parent}/${foldername}/$newfilename #Decompress the fastq.gz file to fastq
-		ln -s ${parent}/${foldername}/${newfilename%.fastq.gz}.fastq ${HOME}/mothur/fastqc_files/${newfilename%.fastq.gz}.fastq
+		ln -s ${parent}/${foldername}/${newfilename%.fastq.gz}.fastq ${wdir}/fastqc_files/${newfilename%.fastq.gz}.fastq
 	done
 done
 
 #Create FASTQC Reports. This assumes that you have installed FASTQC and have created a system path in /bin folder
 
 #First concatenate all the forwards and reverse reads. Remove all the symbolic links.
-cat ${HOME}/mothur/fastqc_files/*R1.fastq> ${HOME}/mothur/fastqc_files/forward_reads.fastq
-cat ${HOME}/mothur/fastqc_files/*R2.fastq> ${HOME}/mothur/fastqc_files/reverse_reads.fastq
-rm ${HOME}/mothur/fastqc_files/*R1.fastq
-rm ${HOME}/mothur/fastqc_files/*R2.fastq
+cat ${wdir}/fastqc_files/*R1.fastq> ${wdir}/fastqc_files/forward_reads.fastq
+cat ${wdir}/fastqc_files/*R2.fastq> ${wdir}/fastqc_files/reverse_reads.fastq
+rm ${wdir}/fastqc_files/*R1.fastq
+rm ${wdir}/fastqc_files/*R2.fastq
 #Run FASTQC
-fastqc ${HOME}/mothur/fastqc_files/forward_reads.fastq -o ${HOME}/mothur/fastqc_files/
-fastqc ${HOME}/mothur/fastqc_files/reverse_reads.fastq -o ${HOME}/mothur/fastqc_files/
+fastqc ${wdir}/fastqc_files/forward_reads.fastq -o ${wdir}/fastqc_files/
+fastqc ${wdir}/fastqc_files/reverse_reads.fastq -o ${wdir}/fastqc_files/
 module load sickle/1.33
 subdirs=`ls $parent`	#Store the names of all sample folders
 for foldername in $subdirs; do
@@ -47,16 +52,16 @@ for foldername in $subdirs; do
 done
 
 #Create the mothur batch file
-touch ${HOME}/mothur/mothur.batch.files.txt
+touch ${inputdir}/mothur.batch.files.txt
 for foldername in $subdirs; do
 	forward=`ls ${parent}/${foldername}/q*R1.fastq`	#Store the forward quality-filtered read file name
 	reverse=`ls ${parent}/${foldername}/q*R2.fastq`	#Store the reverse quality-filtered read file name
-	echo -e "$foldername\t$(basename $forward)\t$(basename $reverse)" >> ${HOME}/mothur/mothur.batch.files.txt
+	echo -e "$foldername\t$(basename $forward)\t$(basename $reverse)" >> ${inputdir}/mothur.batch.files.txt
 done
 
 #Copy all quality-filtered files to mothur folder
 for foldername in $subdirs; do
-	cp ${parent}/${foldername}/q*R* ${HOME}/mothur/
+	cp ${parent}/${foldername}/q*R* ${inputdir}/
 done
 
 
