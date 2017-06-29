@@ -105,30 +105,32 @@ system(mv silva.nr_v123.pcr.align silva.nr_v123.v4.align)
 Next step is to preprocess our sequences to prepare them for mothur analysis.
 
 # Preprocess Sequences
-In this section of protocol we will perform the following steps:
+The folder organization for using this code is : create a folder called "seq_analysis" in your home directory.Inside that transfer the project folder from Illumina basespace. Inside the project folder, there should be folders for each sample within which there are the forward and reverse reads. Here is an example folder organization
+
+![Folder_Organization](folder_org.png)
+
+Transfer the "preprocess_sequences.sh" into the your working directory (for example: seq_analysis). This folder will also contain the project folder "ProjectName" (For example: TookerS2EBPR).
+
+The preprocessing steps are a little complicated, mainly because when the sequences come from the Illumina Basespace website, they have a lot of random numbers and letters associated with them. We want to change all the folder names and file names to something that is relevant to our analysis. I have only tested this on one dataset. We will have to see if we perform another sequencing run with UConn-MARS, if the dataset will look similar. Also if you perform sequencing with some other company, the data will probably look very different.
+
+In this section of tutorial, we will perform the following steps:
 1. Change the name of the files.
 2. Decompress .fastq.gz files into fastq files.
 3. Create symbolic links in a separate fastq folder for quality checking by combining all the forward reads and combining all the reverse reads.
 4. Create FASTQC reports.
-5. Perform sickle filtering on the fastq files in the sample folders, output files with same file name but with a prefix of "q".
+5. Perform sickle quality filtering on the fastq files in the sample folders, output files with same file name but with a prefix of "q".
 6. Create a batch file for mothur in the bash script.
 7. Create symbolic links for the quality-filtered files in a separate folder outside of the native folder organization.
 
-All these steps will be accomplished by a script called "preprocess_sequences.sh". The ".sh" implies that it is a shell script. You will have to make some changes to the script. Here is the script (you don't have to copy paste anything. We will run the script directly from the file. Just copy the script to your working directory)
+All these steps will be accomplished by a script called "preprocess_sequences.sh". The ".sh" implies that it is a shell script. You will have to make some changes to the script. Here is the script (you don't have to copy paste anything. We will run the script directly from the file. Just copy the script file to your working directory)
 
-The folder organization for using this code is : create a folder called "seq_analysis" in your home directory.Inside that transfer the project folder from Illumina basespace. Inside the project folder, there should be folders for each sample within which there are the forward and reverse reads. Here is an example folder organization
+In this script, there is a block of code (which is enclosed between lines of ###). This is the section you will have to change.
 
-Transfer the "preprocess_sequences.sh" into the "seq_analysis" folder. This folder will also contain the project folder "ProjectName"
+- Depending on your directory path, change ```"wdir=${HOME}/seq_analysis"``` to ```"wdir=your_working_directory"```.
 
--HOME
---seq_analysis
----ProjectName
-----Sample1
------Sample1_R1.fastq.gz
------Sample1_R2.fastq.gz
-----Sample2
------Sample2_R1.fastq.gz
------Sample2_R2.fastq.gz
+- In the Discovery cluster, there is a folder called scratch where all temporary input files and output files can be stored. I usually like to create a folder called input_files (where I will keep all the files that mothur requires) and output_files (where I will store all the files that mothur generates). Depending on what the name and location of the input_files folder is , you should change ```"inputdir=/scratch/vnsriniv/input_files_test/"``` to ```"inputdir=your_input_directory"```
+
+```Note: Always assume that anything on the cluster is not safe. So you should backup all the file locally on your computer. ```
 
 ```bash
 cd seq_analysis
@@ -136,16 +138,24 @@ cd seq_analysis
 vi preprocess_sequences,sh
 ```
 Now the script will look like this.
+
+```You will have to know how to use the vi editor. Familiarize yourself with some basic commands to use in vi. This is important. ```
+
 ```bash
 #!/bin/bash
 
-#The folder organization for using this code is : create a folder called "seq_analysis" in your home directory. Inside that transfer the project folder from Illumina basespace to the mothur folder. Inside the project folder, there should be folders for each sample within which there are the forward and reverse reads.
+#The folder organization for using this code is : create a folder called mothur in your home directory. Inside that transfer the project folder from Illumina basespace to the mothur folder. Inside the project folder, there should be folders for each sample within which there are the forward and reverse reads.
 
-#All the operations performed here are from the project directory (ProjectName). So navigate first to the project directory before running this script
+#All the operations performed here are from the project directory. So navigate first to the project directory before running this script
+
+#################CHANGE THIS####################################
+wdir=${HOME}/seq_analysis
+inputdir=/scratch/vnsriniv/input_files_test/
+################################################################
 
 #Create necessary folders
 parent=`pwd`	#Store the project directory
-mkdir ${HOME}/mothur/fastqc_files/	#Create a folder for fastqc
+mkdir ${wdir}/fastqc_files/	#Create a folder for fastqc
 
 #Remove -randomnumber from folder names
 for folder in *; do
@@ -163,20 +173,20 @@ for foldername in $subdirs; do
 		newfilename=${foldername}_${name3}.fastq.gz	#Attach the foldername to R1/R2 and create new file name
 		mv ${parent}/${foldername}/$filename ${parent}/${foldername}/$newfilename #Rename the old file with the new file name
 		gunzip -d ${parent}/${foldername}/$newfilename #Decompress the fastq.gz file to fastq
-		ln -s ${parent}/${foldername}/${newfilename%.fastq.gz}.fastq ${HOME}/mothur/fastqc_files/${newfilename%.fastq.gz}.fastq
+		ln -s ${parent}/${foldername}/${newfilename%.fastq.gz}.fastq ${wdir}/fastqc_files/${newfilename%.fastq.gz}.fastq
 	done
 done
 
 #Create FASTQC Reports. This assumes that you have installed FASTQC and have created a system path in /bin folder
 
 #First concatenate all the forwards and reverse reads. Remove all the symbolic links.
-cat ${HOME}/mothur/fastqc_files/*R1.fastq> ${HOME}/mothur/fastqc_files/forward_reads.fastq
-cat ${HOME}/mothur/fastqc_files/*R2.fastq> ${HOME}/mothur/fastqc_files/reverse_reads.fastq
-rm ${HOME}/mothur/fastqc_files/*R1.fastq
-rm ${HOME}/mothur/fastqc_files/*R2.fastq
+cat ${wdir}/fastqc_files/*R1.fastq> ${wdir}/fastqc_files/forward_reads.fastq
+cat ${wdir}/fastqc_files/*R2.fastq> ${wdir}/fastqc_files/reverse_reads.fastq
+rm ${wdir}/fastqc_files/*R1.fastq
+rm ${wdir}/fastqc_files/*R2.fastq
 #Run FASTQC
-fastqc ${HOME}/mothur/fastqc_files/forward_reads.fastq -o ${HOME}/mothur/fastqc_files/
-fastqc ${HOME}/mothur/fastqc_files/reverse_reads.fastq -o ${HOME}/mothur/fastqc_files/
+fastqc ${wdir}/fastqc_files/forward_reads.fastq -o ${wdir}/fastqc_files/
+fastqc ${wdir}/fastqc_files/reverse_reads.fastq -o ${wdir}/fastqc_files/
 module load sickle/1.33
 subdirs=`ls $parent`	#Store the names of all sample folders
 for foldername in $subdirs; do
@@ -186,29 +196,24 @@ for foldername in $subdirs; do
 done
 
 #Create the mothur batch file
-touch ${HOME}/mothur/mothur.batch.files.txt
+touch ${inputdir}/mothur.batch.files.txt
 for foldername in $subdirs; do
 	forward=`ls ${parent}/${foldername}/q*R1.fastq`	#Store the forward quality-filtered read file name
 	reverse=`ls ${parent}/${foldername}/q*R2.fastq`	#Store the reverse quality-filtered read file name
-	echo -e "$foldername\t$(basename $forward)\t$(basename $reverse)" >> ${HOME}/mothur/mothur.batch.files.txt
+	echo -e "$foldername\t$(basename $forward)\t$(basename $reverse)" >> ${inputdir}/mothur.batch.files.txt
 done
 
 #Copy all quality-filtered files to mothur folder
 for foldername in $subdirs; do
-	cp ${parent}/${foldername}/q*R* ${HOME}/mothur/
+	cp ${parent}/${foldername}/q*R* ${inputdir}/
 done
 ```
-It is a little bit complicated, mainly because when the sequences come from the Illumina Basespace website, they have a lot of random numbers and letters associated with them. We want to change all the folder names and file names to something that is relevant to our analysis. I have only tested this on one dataset. We will have to see if we perform another sequencing run with UConn-MARS, if the dataset will look similar. Also if you perform sequencing with some other company, the data will probably look very different.
-
-**Anyways, for now just change line 7 to ""**
 
 
-Subsitute “${HOME}/mothur/” in line  7 with the directory path to where the Project Folder for Illumina basespace files are located.Inside that transfer the project folder (eg: TookerS2EBPR) from Illumina basespace to the mothur folder. Inside the project folder, there should be folders for each sample within which there are the forward and reverse reads.
-
-After this is done, we can now run perform the preprocessing.
+After this is done, we can now run perform the preprocessing. **Make sure you are inside the project directory (in this case: TookerS2EBPR) before performing this operation.
 
 ```bash
-bash preprocess_sequences.sh
+bash ../preprocess_sequences.sh
 ```
 This will take a while. As long as you don't see any error/warning messages, sit back and relax (or read a paper!!)
 
