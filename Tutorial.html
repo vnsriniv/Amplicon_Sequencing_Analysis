@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset="utf-8" />
+      <title>Tutorial</title>
+      <style>.markdown-preview:not([data-use-github-style]) { padding: 2em; font-size: 1.2em; color: rgb(131, 148, 150); overflow: auto; background-color: rgb(0, 43, 54); }
+.markdown-preview:not([data-use-github-style]) > :first-child { margin-top: 0px; }
+.markdown-preview:not([data-use-github-style]) h1, .markdown-preview:not([data-use-github-style]) h2, .markdown-preview:not([data-use-github-style]) h3, .markdown-preview:not([data-use-github-style]) h4, .markdown-preview:not([data-use-github-style]) h5, .markdown-preview:not([data-use-github-style]) h6 { line-height: 1.2; margin-top: 1.5em; margin-bottom: 0.5em; color: rgb(219, 224, 225); }
+.markdown-preview:not([data-use-github-style]) h1 { font-size: 2.4em; font-weight: 300; }
+.markdown-preview:not([data-use-github-style]) h2 { font-size: 1.8em; font-weight: 400; }
+.markdown-preview:not([data-use-github-style]) h3 { font-size: 1.5em; font-weight: 500; }
+.markdown-preview:not([data-use-github-style]) h4 { font-size: 1.2em; font-weight: 600; }
+.markdown-preview:not([data-use-github-style]) h5 { font-size: 1.1em; font-weight: 600; }
+.markdown-preview:not([data-use-github-style]) h6 { font-size: 1em; font-weight: 600; }
+.markdown-preview:not([data-use-github-style]) strong { color: rgb(219, 224, 225); }
+.markdown-preview:not([data-use-github-style]) del { color: rgb(175, 186, 187); }
+.markdown-preview:not([data-use-github-style]) a, .markdown-preview:not([data-use-github-style]) a code { color: rgb(253, 246, 227); }
+.markdown-preview:not([data-use-github-style]) img { max-width: 100%; }
+.markdown-preview:not([data-use-github-style]) > p { margin-top: 0px; margin-bottom: 1.5em; }
+.markdown-preview:not([data-use-github-style]) > ul, .markdown-preview:not([data-use-github-style]) > ol { margin-bottom: 1.5em; }
+.markdown-preview:not([data-use-github-style]) blockquote { margin: 1.5em 0px; font-size: inherit; color: rgb(175, 186, 187); border-color: rgb(0, 108, 136); border-width: 4px; }
+.markdown-preview:not([data-use-github-style]) hr { margin: 3em 0px; border-top: 2px dashed rgb(0, 108, 136); background: none; }
+.markdown-preview:not([data-use-github-style]) table { margin: 1.5em 0px; }
+.markdown-preview:not([data-use-github-style]) th { color: rgb(219, 224, 225); }
+.markdown-preview:not([data-use-github-style]) th, .markdown-preview:not([data-use-github-style]) td { padding: 0.66em 1em; border: 1px solid rgb(0, 108, 136); }
+.markdown-preview:not([data-use-github-style]) code { color: rgb(219, 224, 225); background-color: rgb(0, 75, 95); }
+.markdown-preview:not([data-use-github-style]) pre.editor-colors { margin: 1.5em 0px; padding: 1em; font-size: 0.92em; border-radius: 3px; background-color: rgb(0, 59, 74); }
+.markdown-preview:not([data-use-github-style]) kbd { color: rgb(219, 224, 225); border-width: 1px 1px 2px; border-style: solid; border-color: rgb(0, 108, 136) rgb(0, 108, 136) rgb(0, 84, 105); background-color: rgb(0, 75, 95); }
+.markdown-preview[data-use-github-style] { font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif; line-height: 1.6; word-wrap: break-word; padding: 30px; font-size: 16px; color: rgb(51, 51, 51); overflow: scroll; background-color: rgb(255, 255, 255); }
+.markdown-preview[data-use-github-style] > :first-child { margin-top: 0px !important; }
+.markdown-preview[data-use-github-style] > :last-child { margin-bottom: 0px !important; }
+.markdown-preview[data-use-github-style] a:not([href]) { color: inherit; text-decoration: none; }
+.markdown-preview[data-use-github-style] .absent { color: rgb(204, 0, 0); }
+.markdown-preview[data-use-github-style] .anchor { position: absolute; top: 0px; left: 0px; display: block; padding-right: 6px; padding-left: 30px; margin-left: -30px; }
+.markdown-preview[data-use-github-style] .anchor:focus { outline: none; }
+.markdown-preview[data-use-github-style] h1, .markdown-preview[data-use-github-style] h2, .markdown-preview[data-use-github-style] h3, .markdown-preview[data-use-github-style] h4, .markdown-preview[data-use-github-style] h5, .markdown-preview[data-use-github-style] h6 { position: relative; margin-top: 1em; margin-bottom: 16px; font-weight: bold; line-height: 1.4; }
+.markdown-preview[data-use-github-style] h1 .octicon-link, .markdown-preview[data-use-github-style] h2 .octicon-link, .markdown-preview[data-use-github-style] h3 .octicon-link, .markdown-preview[data-use-github-style] h4 .octicon-link, .markdown-preview[data-use-github-style] h5 .octicon-link, .markdown-preview[data-use-github-style] h6 .octicon-link { display: none; color: rgb(0, 0, 0); vertical-align: middle; }
+.markdown-preview[data-use-github-style] h1:hover .anchor, .markdown-preview[data-use-github-style] h2:hover .anchor, .markdown-preview[data-use-github-style] h3:hover .anchor, .markdown-preview[data-use-github-style] h4:hover .anchor, .markdown-preview[data-use-github-style] h5:hover .anchor, .markdown-preview[data-use-github-style] h6:hover .anchor { padding-left: 8px; margin-left: -30px; text-decoration: none; }
+.markdown-preview[data-use-github-style] h1:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h2:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h3:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h4:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h5:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h6:hover .anchor .octicon-link { display: inline-block; }
+.markdown-preview[data-use-github-style] h1 tt, .markdown-preview[data-use-github-style] h2 tt, .markdown-preview[data-use-github-style] h3 tt, .markdown-preview[data-use-github-style] h4 tt, .markdown-preview[data-use-github-style] h5 tt, .markdown-preview[data-use-github-style] h6 tt, .markdown-preview[data-use-github-style] h1 code, .markdown-preview[data-use-github-style] h2 code, .markdown-preview[data-use-github-style] h3 code, .markdown-preview[data-use-github-style] h4 code, .markdown-preview[data-use-github-style] h5 code, .markdown-preview[data-use-github-style] h6 code { font-size: inherit; }
+.markdown-preview[data-use-github-style] h1 { padding-bottom: 0.3em; font-size: 2.25em; line-height: 1.2; border-bottom: 1px solid rgb(238, 238, 238); }
+.markdown-preview[data-use-github-style] h1 .anchor { line-height: 1; }
+.markdown-preview[data-use-github-style] h2 { padding-bottom: 0.3em; font-size: 1.75em; line-height: 1.225; border-bottom: 1px solid rgb(238, 238, 238); }
+.markdown-preview[data-use-github-style] h2 .anchor { line-height: 1; }
+.markdown-preview[data-use-github-style] h3 { font-size: 1.5em; line-height: 1.43; }
+.markdown-preview[data-use-github-style] h3 .anchor { line-height: 1.2; }
+.markdown-preview[data-use-github-style] h4 { font-size: 1.25em; }
+.markdown-preview[data-use-github-style] h4 .anchor { line-height: 1.2; }
+.markdown-preview[data-use-github-style] h5 { font-size: 1em; }
+.markdown-preview[data-use-github-style] h5 .anchor { line-height: 1.1; }
+.markdown-preview[data-use-github-style] h6 { font-size: 1em; color: rgb(119, 119, 119); }
+.markdown-preview[data-use-github-style] h6 .anchor { line-height: 1.1; }
+.markdown-preview[data-use-github-style] p, .markdown-preview[data-use-github-style] blockquote, .markdown-preview[data-use-github-style] ul, .markdown-preview[data-use-github-style] ol, .markdown-preview[data-use-github-style] dl, .markdown-preview[data-use-github-style] table, .markdown-preview[data-use-github-style] pre { margin-top: 0px; margin-bottom: 16px; }
+.markdown-preview[data-use-github-style] hr { height: 4px; padding: 0px; margin: 16px 0px; border: 0px none; background-color: rgb(231, 231, 231); }
+.markdown-preview[data-use-github-style] ul, .markdown-preview[data-use-github-style] ol { padding-left: 2em; }
+.markdown-preview[data-use-github-style] ul.no-list, .markdown-preview[data-use-github-style] ol.no-list { padding: 0px; list-style-type: none; }
+.markdown-preview[data-use-github-style] ul ul, .markdown-preview[data-use-github-style] ul ol, .markdown-preview[data-use-github-style] ol ol, .markdown-preview[data-use-github-style] ol ul { margin-top: 0px; margin-bottom: 0px; }
+.markdown-preview[data-use-github-style] li > p { margin-top: 16px; }
+.markdown-preview[data-use-github-style] dl { padding: 0px; }
+.markdown-preview[data-use-github-style] dl dt { padding: 0px; margin-top: 16px; font-size: 1em; font-style: italic; font-weight: bold; }
+.markdown-preview[data-use-github-style] dl dd { padding: 0px 16px; margin-bottom: 16px; }
+.markdown-preview[data-use-github-style] blockquote { padding: 0px 15px; color: rgb(119, 119, 119); border-left: 4px solid rgb(221, 221, 221); }
+.markdown-preview[data-use-github-style] blockquote > :first-child { margin-top: 0px; }
+.markdown-preview[data-use-github-style] blockquote > :last-child { margin-bottom: 0px; }
+.markdown-preview[data-use-github-style] table { display: block; width: 100%; overflow: auto; word-break: keep-all; }
+.markdown-preview[data-use-github-style] table th { font-weight: bold; }
+.markdown-preview[data-use-github-style] table th, .markdown-preview[data-use-github-style] table td { padding: 6px 13px; border: 1px solid rgb(221, 221, 221); }
+.markdown-preview[data-use-github-style] table tr { border-top: 1px solid rgb(204, 204, 204); background-color: rgb(255, 255, 255); }
+.markdown-preview[data-use-github-style] table tr:nth-child(2n) { background-color: rgb(248, 248, 248); }
+.markdown-preview[data-use-github-style] img { max-width: 100%; box-sizing: border-box; }
+.markdown-preview[data-use-github-style] .emoji { max-width: none; }
+.markdown-preview[data-use-github-style] span.frame { display: block; overflow: hidden; }
+.markdown-preview[data-use-github-style] span.frame > span { display: block; float: left; width: auto; padding: 7px; margin: 13px 0px 0px; overflow: hidden; border: 1px solid rgb(221, 221, 221); }
+.markdown-preview[data-use-github-style] span.frame span img { display: block; float: left; }
+.markdown-preview[data-use-github-style] span.frame span span { display: block; padding: 5px 0px 0px; clear: both; color: rgb(51, 51, 51); }
+.markdown-preview[data-use-github-style] span.align-center { display: block; overflow: hidden; clear: both; }
+.markdown-preview[data-use-github-style] span.align-center > span { display: block; margin: 13px auto 0px; overflow: hidden; text-align: center; }
+.markdown-preview[data-use-github-style] span.align-center span img { margin: 0px auto; text-align: center; }
+.markdown-preview[data-use-github-style] span.align-right { display: block; overflow: hidden; clear: both; }
+.markdown-preview[data-use-github-style] span.align-right > span { display: block; margin: 13px 0px 0px; overflow: hidden; text-align: right; }
+.markdown-preview[data-use-github-style] span.align-right span img { margin: 0px; text-align: right; }
+.markdown-preview[data-use-github-style] span.float-left { display: block; float: left; margin-right: 13px; overflow: hidden; }
+.markdown-preview[data-use-github-style] span.float-left span { margin: 13px 0px 0px; }
+.markdown-preview[data-use-github-style] span.float-right { display: block; float: right; margin-left: 13px; overflow: hidden; }
+.markdown-preview[data-use-github-style] span.float-right > span { display: block; margin: 13px auto 0px; overflow: hidden; text-align: right; }
+.markdown-preview[data-use-github-style] code, .markdown-preview[data-use-github-style] tt { padding: 0.2em 0px; margin: 0px; font-size: 85%; border-radius: 3px; background-color: rgba(0, 0, 0, 0.0392157); }
+.markdown-preview[data-use-github-style] code::before, .markdown-preview[data-use-github-style] tt::before, .markdown-preview[data-use-github-style] code::after, .markdown-preview[data-use-github-style] tt::after { letter-spacing: -0.2em; content: " "; }
+.markdown-preview[data-use-github-style] code br, .markdown-preview[data-use-github-style] tt br { display: none; }
+.markdown-preview[data-use-github-style] del code { text-decoration: inherit; }
+.markdown-preview[data-use-github-style] pre > code { padding: 0px; margin: 0px; font-size: 100%; word-break: normal; white-space: pre; border: 0px; background: transparent; }
+.markdown-preview[data-use-github-style] .highlight { margin-bottom: 16px; }
+.markdown-preview[data-use-github-style] .highlight pre, .markdown-preview[data-use-github-style] pre { padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; border-radius: 3px; background-color: rgb(247, 247, 247); }
+.markdown-preview[data-use-github-style] .highlight pre { margin-bottom: 0px; word-break: normal; }
+.markdown-preview[data-use-github-style] pre { word-wrap: normal; }
+.markdown-preview[data-use-github-style] pre code, .markdown-preview[data-use-github-style] pre tt { display: inline; max-width: initial; padding: 0px; margin: 0px; overflow: initial; line-height: inherit; word-wrap: normal; border: 0px; background-color: transparent; }
+.markdown-preview[data-use-github-style] pre code::before, .markdown-preview[data-use-github-style] pre tt::before, .markdown-preview[data-use-github-style] pre code::after, .markdown-preview[data-use-github-style] pre tt::after { content: normal; }
+.markdown-preview[data-use-github-style] kbd { display: inline-block; padding: 3px 5px; font-size: 11px; line-height: 10px; color: rgb(85, 85, 85); vertical-align: middle; border-width: 1px; border-style: solid; border-color: rgb(204, 204, 204) rgb(204, 204, 204) rgb(187, 187, 187); border-radius: 3px; box-shadow: rgb(187, 187, 187) 0px -1px 0px inset; background-color: rgb(252, 252, 252); }
+.markdown-preview[data-use-github-style] a { color: rgb(51, 122, 183); }
+.markdown-preview[data-use-github-style] code { color: inherit; }
+.markdown-preview[data-use-github-style] pre.editor-colors { padding: 0.8em 1em; margin-bottom: 1em; font-size: 0.85em; border-radius: 4px; overflow: auto; }
+.scrollbars-visible-always .markdown-preview pre.editor-colors .vertical-scrollbar, .scrollbars-visible-always .markdown-preview pre.editor-colors .horizontal-scrollbar { visibility: hidden; }
+.scrollbars-visible-always .markdown-preview pre.editor-colors:hover .vertical-scrollbar, .scrollbars-visible-always .markdown-preview pre.editor-colors:hover .horizontal-scrollbar { visibility: visible; }
+.markdown-preview .task-list-item-checkbox { position: absolute; margin: 0.25em 0px 0px -1.4em; }
+.markdown-preview code { text-shadow: none; }
+.bracket-matcher .region {
+  border-bottom: 1px dotted lime;
+  position: absolute;
+}
+
+.spell-check-misspelling .region {
+  border-bottom: 2px dotted rgba(255, 51, 51, 0.75);
+}
+.spell-check-corrections {
+  width: 25em !important;
+}
+
+pre.editor-colors {
+  color: #839496;
+  background-color: #002b36;
+}
+pre.editor-colors .gutter {
+  color: #839496;
+  background-color: #073642;
+}
+pre.editor-colors .gutter .line-number.cursor-line {
+  background-color: #084150;
+}
+pre.editor-colors .invisible-character {
+  color: #0a4d5e;
+}
+pre.editor-colors .indent-guide {
+  color: #0a4d5e;
+}
+pre.editor-colors .cursor {
+  border-color: #fdf6e3;
+}
+pre.editor-colors .selection .region {
+  background-color: #073a47;
+}
+pre.editor-colors .fold-marker:after,
+pre.editor-colors .gutter .line-number.folded {
+  color: #d33682;
+}
+pre.editor-colors .bracket-matcher .region {
+  border-color: #d33682;
+}
+.syntax--comment {
+  color: #586e75;
+  font-style: italic;
+}
+.syntax--comment .syntax--markup.syntax--link {
+  color: #586e75;
+}
+.syntax--string {
+  color: #2aa198;
+}
+.syntax--string.syntax--regexp {
+  color: #dc322f;
+}
+.syntax--constant.syntax--numeric {
+  color: #d33682;
+}
+.syntax--constant.syntax--language {
+  color: #b58900;
+}
+.syntax--constant.syntax--character,
+.syntax--constant.syntax--other {
+  color: #cb4b16;
+}
+.syntax--variable {
+  color: #268bd2;
+}
+.syntax--keyword {
+  color: #859900;
+}
+.syntax--storage {
+  color: #859900;
+}
+.syntax--entity.syntax--name.syntax--class,
+.syntax--entity.syntax--name.syntax--type,
+.syntax--entity.syntax--name.syntax--function {
+  color: #268bd2;
+}
+.syntax--entity.syntax--other.syntax--attribute-name {
+  color: #657b83;
+}
+.syntax--support.syntax--function {
+  color: #268bd2;
+}
+.syntax--support.syntax--function.syntax--builtin {
+  color: #859900;
+}
+.syntax--support.syntax--type,
+.syntax--support.syntax--class {
+  color: #859900;
+}
+.syntax--tag.syntax--entity.syntax--name {
+  color: #268bd2;
+}
+.syntax--tag.syntax--punctuation.syntax--definition.syntax--html,
+.syntax--tag.syntax--punctuation.syntax--definition.syntax--begin,
+.syntax--tag.syntax--punctuation.syntax--definition.syntax--end {
+  color: #586e75;
+}
+.syntax--invalid.syntax--deprecated {
+  color: #b58900;
+  text-decoration: underline;
+}
+.syntax--invalid.syntax--illegal {
+  color: #dc322f;
+  text-decoration: underline;
+}
+.syntax--none {
+  color: #839496;
+}
+.syntax--source.syntax--c .syntax--meta.syntax--preprocessor,
+.syntax--source.syntax--cpp .syntax--meta.syntax--preprocessor {
+  color: #dc322f;
+}
+.syntax--source.syntax--c .syntax--keyword.syntax--control.syntax--directive,
+.syntax--source.syntax--cpp .syntax--keyword.syntax--control.syntax--directive {
+  color: #cb4b16;
+}
+.syntax--source.syntax--c .syntax--punctuation.syntax--string,
+.syntax--source.syntax--cpp .syntax--punctuation.syntax--string {
+  color: #2aa198;
+}
+.syntax--source.syntax--c .syntax--constant,
+.syntax--source.syntax--cpp .syntax--constant {
+  color: #cb4b16;
+}
+.syntax--source.syntax--c .syntax--constant.syntax--numeric,
+.syntax--source.syntax--cpp .syntax--constant.syntax--numeric,
+.syntax--source.syntax--c .syntax--constant.syntax--language.syntax--c,
+.syntax--source.syntax--cpp .syntax--constant.syntax--language.syntax--c {
+  color: #2aa198;
+}
+.syntax--source.syntax--c .syntax--storage,
+.syntax--source.syntax--cpp .syntax--storage {
+  color: #b58900;
+}
+.syntax--source.syntax--c .syntax--entity,
+.syntax--source.syntax--cpp .syntax--entity {
+  color: #839496;
+}
+.syntax--source.syntax--c .syntax--entity.syntax--name.syntax--function.syntax--preprocessor,
+.syntax--source.syntax--cpp .syntax--entity.syntax--name.syntax--function.syntax--preprocessor {
+  color: #dc322f;
+}
+.syntax--source.syntax--c .syntax--support.syntax--type,
+.syntax--source.syntax--cpp .syntax--support.syntax--type {
+  color: #b58900;
+}
+.syntax--source.syntax--c .syntax--support.syntax--type.syntax--posix-reserved,
+.syntax--source.syntax--cpp .syntax--support.syntax--type.syntax--posix-reserved {
+  color: #839496;
+}
+.syntax--source.syntax--c .syntax--variable.syntax--other.syntax--dot-access,
+.syntax--source.syntax--cpp .syntax--variable.syntax--other.syntax--dot-access {
+  color: #839496;
+}
+.syntax--source.syntax--c .syntax--variable.syntax--parameter.syntax--preprocessor,
+.syntax--source.syntax--cpp .syntax--variable.syntax--parameter.syntax--preprocessor {
+  color: #dc322f;
+}
+.syntax--source.syntax--coffee .syntax--support.syntax--class {
+  color: #859900;
+}
+.syntax--source.syntax--coffee .syntax--variable,
+.syntax--source.syntax--coffee .syntax--entity.syntax--name.syntax--function,
+.syntax--source.syntax--coffee .syntax--entity.syntax--name.syntax--class {
+  color: #268bd2;
+}
+.syntax--source.syntax--coffee .syntax--variable.syntax--parameter.syntax--function {
+  color: #839496;
+}
+.syntax--source.syntax--coffee .syntax--variable.syntax--other.syntax--readwrite {
+  color: #859900;
+}
+.syntax--source.syntax--coffee .syntax--storage.syntax--type.syntax--function {
+  color: #859900;
+}
+.syntax--source.syntax--coffee .syntax--entity.syntax--name {
+  color: #839496;
+}
+.syntax--source.syntax--coffee .syntax--meta.syntax--brace.syntax--round,
+.syntax--source.syntax--coffee .syntax--meta.syntax--brace.syntax--square {
+  color: #839496;
+}
+.syntax--source.syntax--coffee .syntax--meta.syntax--delimiter {
+  color: #839496;
+}
+.syntax--source.syntax--coffee .syntax--storage.syntax--type.syntax--class {
+  color: #859900;
+}
+.syntax--source.syntax--coffee .syntax--punctuation.syntax--terminator {
+  color: #839496;
+}
+.syntax--source.syntax--coffee .syntax--punctuation.syntax--section.syntax--embedded {
+  color: #dc322f;
+}
+.syntax--source.syntax--coffee .syntax--embedded.syntax--source {
+  color: #839496;
+}
+.syntax--source.syntax--coffee .syntax--constant.syntax--numeric {
+  color: #d33682;
+}
+.syntax--source.syntax--coffee .syntax--constant.syntax--language.syntax--boolean {
+  color: #b58900;
+}
+.syntax--source.syntax--css .syntax--punctuation.syntax--separator,
+.syntax--source.syntax--css .syntax--punctuation.syntax--terminator {
+  color: #839496;
+}
+.syntax--source.syntax--css .syntax--punctuation.syntax--property-list.syntax--begin,
+.syntax--source.syntax--css .syntax--punctuation.syntax--property-list.syntax--end {
+  color: #dc322f;
+}
+.syntax--source.syntax--css .syntax--punctuation.syntax--section.syntax--function {
+  color: #2aa198;
+}
+.syntax--source.syntax--css .syntax--entity.syntax--name {
+  color: #859900;
+}
+.syntax--source.syntax--css .syntax--attribute-name.syntax--class,
+.syntax--source.syntax--css .syntax--id {
+  color: #268bd2;
+}
+.syntax--source.syntax--css .syntax--pseudo-element,
+.syntax--source.syntax--css .syntax--pseudo-class {
+  color: #cb4b16;
+}
+.syntax--source.syntax--css .syntax--property-value {
+  color: #2aa198;
+}
+.syntax--source.syntax--css .syntax--constant.syntax--numeric {
+  color: #2aa198;
+}
+.syntax--source.syntax--css .syntax--constant.syntax--numeric .syntax--unit {
+  color: #2aa198;
+}
+.syntax--source.syntax--css .syntax--rgb-value {
+  color: #2aa198;
+}
+.syntax--source.syntax--css .syntax--support.syntax--constant {
+  color: #2aa198;
+}
+.syntax--source.syntax--css .syntax--support.syntax--constant.syntax--media {
+  color: #dc322f;
+}
+.syntax--source.syntax--css .syntax--keyword.syntax--important {
+  color: #dc322f;
+}
+.syntax--source.syntax--less .syntax--keyword.syntax--unit,
+.syntax--source.syntax--scss .syntax--keyword.syntax--unit {
+  color: #2aa198;
+}
+.syntax--source.syntax--go .syntax--operator {
+  color: #839496;
+}
+.syntax--source.syntax--go .syntax--operator.syntax--assignment {
+  color: #859900;
+}
+.syntax--source.syntax--java .syntax--keyword.syntax--operator {
+  color: #859900;
+}
+.syntax--source.syntax--java .syntax--keyword.syntax--import {
+  color: #cb4b16;
+}
+.syntax--source.syntax--java .syntax--storage.syntax--modifier.syntax--import {
+  color: #586e75;
+}
+.syntax--source.syntax--java .syntax--meta.syntax--class .syntax--storage.syntax--modifier {
+  color: #b58900;
+}
+.syntax--source.syntax--java .syntax--meta.syntax--class .syntax--meta.syntax--class.syntax--identifier .syntax--entity.syntax--name.syntax--type.syntax--class {
+  color: #268bd2;
+}
+.syntax--source.syntax--java .syntax--storage.syntax--type.syntax--primitive.syntax--array {
+  color: #859900;
+}
+.syntax--source.syntax--java .syntax--constant.syntax--numeric {
+  color: #d33682;
+}
+.syntax--source.syntax--java .syntax--constant.syntax--other {
+  color: #cb4b16;
+}
+.syntax--source.syntax--java .syntax--storage.syntax--type {
+  color: #859900;
+}
+.syntax--source.syntax--java .syntax--meta.syntax--method-call {
+  color: #dc322f;
+}
+.syntax--source.syntax--java .syntax--meta.syntax--method-call .syntax--meta.syntax--method {
+  color: #6c71c4;
+}
+.syntax--source.syntax--java .syntax--meta.syntax--method-call .syntax--punctuation.syntax--definition.syntax--seperator.syntax--parameter {
+  color: #859900;
+}
+.syntax--source.syntax--java .syntax--punctuation.syntax--definition.syntax--method-parameters {
+  color: #93a1a1;
+}
+.syntax--source.syntax--js .syntax--constant {
+  color: #859900;
+}
+.syntax--source.syntax--js .syntax--comma {
+  color: #839496;
+}
+.syntax--source.syntax--js .syntax--support.syntax--class {
+  color: #859900;
+}
+.syntax--source.syntax--js .syntax--entity.syntax--name.syntax--type {
+  color: #b58900;
+}
+.syntax--source.syntax--js .syntax--entity.syntax--name {
+  color: #839496;
+}
+.syntax--source.syntax--js .syntax--meta.syntax--brace {
+  color: #839496;
+}
+.syntax--source.syntax--js .syntax--keyword {
+  color: #839496;
+}
+.syntax--source.syntax--js .syntax--keyword.syntax--operator.syntax--new {
+  color: #859900;
+}
+.syntax--source.syntax--js .syntax--keyword.syntax--control {
+  color: #859900;
+}
+.syntax--source.syntax--js .syntax--keyword.syntax--control.syntax--regexp {
+  color: #2aa198;
+}
+.syntax--source.syntax--js .syntax--variable {
+  color: #268bd2;
+}
+.syntax--source.syntax--js .syntax--variable.syntax--parameter {
+  color: #839496;
+}
+.syntax--source.syntax--js .syntax--regexp {
+  color: #2aa198;
+}
+.syntax--source.syntax--js .syntax--support.syntax--function {
+  color: #6c71c4;
+}
+.syntax--source.syntax--js .syntax--support.syntax--constant {
+  color: #839496;
+}
+.syntax--source.syntax--js .syntax--constant.syntax--numeric {
+  color: #839496;
+}
+.syntax--source.syntax--js .syntax--punctuation.syntax--terminator.syntax--statement {
+  color: #839496;
+}
+.syntax--source.syntax--js .syntax--meta.syntax--delimiter.syntax--method.syntax--period {
+  color: #839496;
+}
+.syntax--source.syntax--js .syntax--meta.syntax--brace.syntax--square {
+  color: #268bd2;
+}
+.syntax--source.syntax--js .syntax--meta.syntax--brace.syntax--curly {
+  color: #268bd2;
+}
+.syntax--source.syntax--js .syntax--string.syntax--quoted.syntax--template .syntax--embedded.syntax--source {
+  color: #839496;
+}
+.syntax--source.syntax--js .syntax--string.syntax--quoted.syntax--template .syntax--embedded.syntax--source > .syntax--embedded.syntax--punctuation {
+  color: #dc322f;
+}
+.syntax--source.syntax--js.syntax--embedded .syntax--entity.syntax--name.syntax--tag {
+  color: #268bd2;
+}
+.syntax--source.syntax--js.syntax--jsx .syntax--entity.syntax--name.syntax--tag {
+  color: #268bd2;
+}
+.syntax--gfm .syntax--link .syntax--entity {
+  color: #6c71c4;
+}
+.syntax--gfm .syntax--list.syntax--ordered {
+  color: #859900;
+}
+.syntax--gfm .syntax--list.syntax--unordered {
+  color: #b58900;
+}
+.syntax--gfm .syntax--raw {
+  font-style: italic;
+}
+.syntax--gfm.syntax--support {
+  color: #586e75;
+}
+.syntax--gfm.syntax--support.syntax--quote {
+  color: #6c71c4;
+}
+.syntax--markup.syntax--bold {
+  font-weight: bold;
+}
+.syntax--markup.syntax--italic {
+  font-style: italic;
+}
+.syntax--markup.syntax--heading {
+  color: #268bd2;
+}
+.syntax--markup.syntax--link {
+  color: #2aa198;
+}
+.syntax--markup.syntax--deleted {
+  color: #dc322f;
+}
+.syntax--markup.syntax--changed {
+  color: #b58900;
+}
+.syntax--markup.syntax--inserted {
+  color: #2aa198;
+}
+.syntax--source.syntax--php .syntax--storage.syntax--type.syntax--class {
+  color: #b58900;
+}
+.syntax--source.syntax--php .syntax--storage.syntax--type.syntax--function {
+  color: #cb4b16;
+}
+.syntax--source.syntax--php .syntax--storage.syntax--modifier {
+  color: #b58900;
+}
+.syntax--source.syntax--php .syntax--entity.syntax--name.syntax--type.syntax--class {
+  color: #839496;
+}
+.syntax--source.syntax--php .syntax--entity.syntax--name.syntax--function {
+  color: #839496;
+}
+.syntax--source.syntax--php .syntax--entity.syntax--other {
+  color: #839496;
+}
+.syntax--source.syntax--php .syntax--variable {
+  color: #268bd2;
+}
+.syntax--source.syntax--php .syntax--punctuation.syntax--definition {
+  color: #839496;
+}
+.syntax--source.syntax--php .syntax--punctuation.syntax--definition.syntax--comment {
+  color: #586e75;
+}
+.syntax--source.syntax--php .syntax--punctuation.syntax--definition.syntax--array {
+  color: #dc322f;
+}
+.syntax--source.syntax--php .syntax--punctuation.syntax--definition.syntax--string {
+  color: #839496;
+}
+.syntax--source.syntax--php .syntax--punctuation.syntax--definition.syntax--variable {
+  color: #859900;
+}
+.syntax--source.syntax--php .syntax--support.syntax--function.syntax--construct {
+  color: #b58900;
+}
+.syntax--source.syntax--php .syntax--support.syntax--function.syntax--array {
+  color: #859900;
+}
+.syntax--source.syntax--php .syntax--keyword.syntax--operator.syntax--class {
+  color: #b58900;
+}
+.syntax--source.syntax--php .syntax--keyword.syntax--operator.syntax--assignment {
+  color: #859900;
+}
+.syntax--source.syntax--php .syntax--keyword.syntax--other {
+  color: #dc322f;
+}
+.syntax--source.syntax--python .syntax--entity {
+  color: #839496;
+}
+.syntax--source.syntax--python .syntax--entity.syntax--name {
+  color: #268bd2;
+}
+.syntax--source.syntax--python .syntax--entity.syntax--other {
+  color: #268bd2;
+}
+.syntax--source.syntax--python .syntax--function {
+  color: #268bd2;
+}
+.syntax--source.syntax--python .syntax--function.syntax--magic {
+  color: #268bd2;
+}
+.syntax--source.syntax--python .syntax--punctuation.syntax--string {
+  color: #2aa198;
+}
+.syntax--source.syntax--python .syntax--keyword.syntax--operator {
+  color: #839496;
+}
+.syntax--source.syntax--python .syntax--keyword.syntax--operator.syntax--quantifier {
+  color: #2aa198;
+}
+.syntax--source.syntax--python .syntax--keyword.syntax--operator.syntax--logical {
+  color: #859900;
+}
+.syntax--source.syntax--python .syntax--keyword.syntax--control.syntax--import {
+  color: #cb4b16;
+}
+.syntax--source.syntax--python .syntax--keyword.syntax--other {
+  color: #859900;
+}
+.syntax--source.syntax--python .syntax--constant.syntax--language {
+  color: #268bd2;
+}
+.syntax--source.syntax--python .syntax--constant.syntax--character {
+  color: #2aa198;
+}
+.syntax--source.syntax--python .syntax--constant.syntax--other {
+  color: #dc322f;
+}
+.syntax--source.syntax--python .syntax--entity.syntax--name.syntax--type.syntax--class {
+  color: #268bd2;
+}
+.syntax--source.syntax--python .syntax--variable {
+  color: #839496;
+}
+.syntax--source.syntax--python .syntax--support.syntax--function.syntax--builtin {
+  color: #268bd2;
+}
+.syntax--source.syntax--python .syntax--support.syntax--type.syntax--exception.syntax--python {
+  color: #b58900;
+}
+.syntax--source.syntax--python .syntax--support.syntax--type.syntax--python {
+  color: #268bd2;
+}
+.syntax--source.syntax--python .syntax--storage.syntax--type.syntax--string {
+  color: #2aa198;
+}
+.syntax--source.syntax--python .syntax--storage.syntax--type.syntax--class {
+  color: #859900;
+}
+.syntax--source.syntax--python .syntax--storage.syntax--type.syntax--class.syntax--todo {
+  color: #d33682;
+}
+.syntax--source.syntax--python .syntax--storage.syntax--type.syntax--function {
+  color: #859900;
+}
+.syntax--source.syntax--python .syntax--punctuation.syntax--definition.syntax--parameters {
+  color: #839496;
+}
+.syntax--source.syntax--python .syntax--punctuation.syntax--section.syntax--function.syntax--begin {
+  color: #839496;
+}
+.syntax--source.syntax--python .syntax--punctuation.syntax--separator.syntax--parameters {
+  color: #839496;
+}
+.syntax--source.syntax--ruby .syntax--meta.syntax--embedded .syntax--punctuation.syntax--section {
+  color: #dc322f;
+}
+.syntax--source.syntax--ruby .syntax--punctuation.syntax--definition {
+  color: #839496;
+}
+.syntax--source.syntax--ruby .syntax--punctuation.syntax--definition.syntax--string {
+  color: #dc322f;
+}
+.syntax--source.syntax--ruby .syntax--punctuation.syntax--definition.syntax--comment {
+  color: #586e75;
+}
+.syntax--source.syntax--ruby .syntax--entity.syntax--inherited-class {
+  color: #b58900;
+}
+.syntax--source.syntax--ruby .syntax--variable.syntax--parameter {
+  color: #839496;
+}
+.syntax--source.syntax--ruby .syntax--variable.syntax--constant {
+  color: #b58900;
+}
+.syntax--source.syntax--ruby .syntax--constant.syntax--boolean {
+  color: #2aa198;
+}
+.syntax--source.syntax--ruby .syntax--instance .syntax--punctuation.syntax--definition {
+  color: #268bd2;
+}
+.syntax--source.syntax--ruby .syntax--class {
+  color: #b58900;
+}
+.syntax--source.syntax--ruby .syntax--class.syntax--control {
+  color: #839496;
+}
+.syntax--source.syntax--ruby .syntax--module {
+  color: #b58900;
+}
+.syntax--source.syntax--ruby .syntax--require .syntax--keyword.syntax--other.syntax--special-method {
+  color: #cb4b16;
+}
+.syntax--source.syntax--ruby .syntax--keyword.syntax--other.syntax--special-method {
+  color: #cb4b16;
+}
+.syntax--source.syntax--ruby .syntax--keyword.syntax--other {
+  color: #859900;
+}
+.syntax--source.syntax--ruby .syntax--keyword.syntax--control {
+  color: #859900;
+}
+.syntax--source.syntax--ruby .syntax--keyword.syntax--operator {
+  color: #839496;
+}
+.syntax--source.syntax--ruby .syntax--special-method {
+  color: #268bd2;
+}
+.syntax--source.syntax--ruby .syntax--symbol {
+  color: #2aa198;
+}
+.syntax--source.syntax--ruby .syntax--symbol .syntax--punctuation.syntax--definition {
+  color: #2aa198;
+}
+.syntax--source.syntax--ruby .syntax--hashkey {
+  color: #dc322f;
+}
+.syntax--source.syntax--ruby .syntax--hashkey .syntax--punctuation.syntax--definition {
+  color: #dc322f;
+}
+.syntax--source.syntax--ruby .syntax--string.syntax--regexp {
+  color: #dc322f;
+}
+.syntax--source.syntax--ruby .syntax--todo {
+  color: #d33682;
+}
+.syntax--source.syntax--ruby .syntax--variable.syntax--ruby.syntax--global {
+  color: #268bd2;
+}
+.syntax--source.syntax--ruby .syntax--variable.syntax--ruby.syntax--global .syntax--punctuation {
+  color: #268bd2;
+}
+.syntax--source.syntax--ruby .syntax--variable.syntax--block {
+  color: #268bd2;
+}
+.syntax--source.syntax--ruby .syntax--variable.syntax--self {
+  color: #2aa198;
+}
+.syntax--source.syntax--ruby .syntax--punctuation.syntax--separator {
+  color: #839496;
+}
+.syntax--source.syntax--ruby .syntax--numeric {
+  color: #2aa198;
+}
+.syntax--source.syntax--ruby .syntax--punctuation.syntax--section.syntax--regexp {
+  color: #dc322f;
+}
+.syntax--source.syntax--ruby .syntax--string.syntax--interpolated {
+  color: #2aa198;
+}
+.syntax--source.syntax--ruby .syntax--string.syntax--interpolated .syntax--embedded.syntax--line.syntax--ruby .syntax--punctuation .syntax--source.syntax--ruby {
+  color: #dc322f;
+}
+.syntax--source.syntax--ruby .syntax--string.syntax--interpolated .syntax--embedded.syntax--line.syntax--ruby .syntax--source.syntax--ruby {
+  color: #839496;
+}
+.syntax--source.syntax--ruby .syntax--string.syntax--interpolated .syntax--embedded.syntax--line.syntax--ruby .syntax--source.syntax--ruby .syntax--punctuation.syntax--array,
+.syntax--source.syntax--ruby .syntax--string.syntax--interpolated .syntax--embedded.syntax--line.syntax--ruby .syntax--source.syntax--ruby .syntax--punctuation.syntax--function {
+  color: #839496;
+}
+.syntax--source.syntax--ruby .syntax--support.syntax--function {
+  color: #839496;
+}
+.syntax--source.syntax--ruby .syntax--support.syntax--function.syntax--kernel {
+  color: #859900;
+}
+.syntax--source.syntax--scala .syntax--variable {
+  color: #93a1a1;
+}
+.syntax--source.syntax--scala .syntax--declaration {
+  color: #93a1a1;
+  font-weight: bold;
+}
+.syntax--source.syntax--scala .syntax--comparison {
+  color: #93a1a1;
+}
+.syntax--source.syntax--scala .syntax--class,
+.syntax--source.syntax--scala .syntax--type {
+  color: #b58900;
+}
+.syntax--source.syntax--scala .syntax--val {
+  font-weight: normal;
+}
+.syntax--source.syntax--scala .syntax--variable {
+  font-weight: bold;
+}
+.syntax--source.syntax--scala .syntax--variable.syntax--parameter {
+  color: #6c71c4;
+  font-weight: normal;
+}
+.syntax--source.syntax--scala .syntax--control.syntax--flow {
+  color: #93a1a1;
+  font-weight: bold;
+}
+.syntax--source.syntax--scala .syntax--constant.syntax--language {
+  color: #93a1a1;
+  font-weight: bold;
+}
+.syntax--source.syntax--scala .syntax--function.syntax--declaration {
+  color: #6c71c4;
+}
+.syntax--source.syntax--scala .syntax--modifier.syntax--other {
+  font-weight: bold;
+}
+.syntax--source.syntax--scala .syntax--package {
+  color: #93a1a1;
+}
+.syntax--source.syntax--scala .syntax--variable.syntax--import {
+  font-weight: normal;
+}
+.syntax--source.syntax--scala .syntax--type .syntax--bounds,
+.syntax--source.syntax--scala .syntax--type .syntax--class {
+  color: #6c71c4;
+}
+.syntax--source.syntax--scala .syntax--documentation :not(.syntax--embedded).syntax--link.syntax--entity {
+  color: #268bd2;
+  text-decoration: underline;
+}
+.syntax--source.syntax--scala .syntax--documentation :not(.syntax--embedded) .syntax--class,
+.syntax--source.syntax--scala .syntax--documentation :not(.syntax--embedded) .syntax--parameter {
+  color: #93a1a1;
+}
+.syntax--source.syntax--scala .syntax--documentation :not(.syntax--embedded) .syntax--description {
+  color: #586e75;
+}
+.syntax--source.syntax--scala .syntax--embedded {
+  color: #6c7c7c;
+  font-style: italic;
+}
+.syntax--source.syntax--scala .syntax--embedded .syntax--margin,
+.syntax--source.syntax--scala .syntax--embedded .syntax--delimiters {
+  font-style: normal;
+}
+</style>
+  </head>
+  <body class='markdown-preview' data-use-github-style><table data-table-type="yaml-metadata">
+  <thead>
+  <tr>
+  <th>layout</th>
+
+  <th>title</th>
+
+  <th>modified</th>
+
+  <th>excerpt</th>
+
+  <th>comments</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+  <td><div>page</div></td>
+
+  <td><div>A tutorial for 16S rRNA gene amplicon sequencing analysis</div></td>
+
+  <td><div>June 28th 2017</div></td>
+
+  <td><div>Created by Varun Srinivasan, collaborator: Guangyu Li</div></td>
+
+  <td><div>true</div></td>
+  </tr>
+  </tbody>
+</table>
+
+<p>{% include _toc.html %}</p>
+<p>This is an attempt to put together a comprehensive tutorial for amplicon sequencing analysis. This is meant to get people new to amplicon sequencing analysis started. Modifications to the code will be required if you need to do anything more than the basic analysis.</p>
+<h1 id="software-installation-instructions">Software Installation Instructions</h1>
+<p>You are going to need the following software to run this analysis.</p>
+<h2 id="fastqc">FastQC</h2>
+<p>FastQC is a convenient software to check the quality of your reads. It is a java based application. So you need to make sure your system contains java. Check the install.txt file for instructions once you download the zip file and unzip it.</p>
+<pre class="editor-colors lang-bash"><div class="line"><span class="syntax--source syntax--shell"><span class="syntax--support syntax--function syntax--builtin syntax--shell"><span>cd</span></span><span>&nbsp;</span><span class="syntax--variable syntax--other syntax--bracket syntax--shell"><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>${</span></span><span>HOME</span><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>}</span></span></span></span></div><div class="line"><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--line syntax--number-sign syntax--shell"><span class="syntax--punctuation syntax--definition syntax--comment syntax--shell"><span>#</span></span><span>Download&nbsp;FastQC</span></span></span></div><div class="line"><span class="syntax--source syntax--shell"><span>wget&nbsp;http://www.bioinformatics.babraham.ac.uk/projects/fastqc/fastqc_v0.11.5.zip</span></span></div><div class="line"><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--line syntax--number-sign syntax--shell"><span class="syntax--punctuation syntax--definition syntax--comment syntax--shell"><span>#</span></span><span>Unzip</span></span></span></div><div class="line"><span class="syntax--source syntax--shell"><span>unzip&nbsp;fastqc_v0.11.5.zip&nbsp;</span><span class="syntax--keyword syntax--operator syntax--list syntax--shell"><span>&amp;&amp;</span></span><span>&nbsp;</span><span class="syntax--support syntax--function syntax--builtin syntax--shell"><span>cd</span></span><span>&nbsp;FastQC</span></span></div><div class="line"><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--line syntax--number-sign syntax--shell"><span class="syntax--punctuation syntax--definition syntax--comment syntax--shell"><span>#</span></span><span>Change&nbsp;permissions&nbsp;to&nbsp;make&nbsp;it&nbsp;executable</span></span></span></div><div class="line"><span class="syntax--source syntax--shell"><span>chmod&nbsp;755&nbsp;fastqc</span></span></div><div class="line"><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--line syntax--number-sign syntax--shell"><span class="syntax--punctuation syntax--definition syntax--comment syntax--shell"><span>#</span></span><span>Create&nbsp;symbolic&nbsp;link&nbsp;in&nbsp;the&nbsp;local&nbsp;bin&nbsp;folder.&nbsp;Now&nbsp;you&nbsp;can&nbsp;just&nbsp;use&nbsp;the&nbsp;command&nbsp;fastqc&nbsp;from&nbsp;any&nbsp;directory</span></span></span></div><div class="line"><span class="syntax--source syntax--shell"><span class="syntax--meta syntax--scope syntax--if-block syntax--shell"><span class="syntax--keyword syntax--control syntax--shell"><span>if</span></span><span>&nbsp;</span><span class="syntax--meta syntax--scope syntax--logical-expression syntax--shell"><span class="syntax--punctuation syntax--definition syntax--logical-expression syntax--shell"><span>[[</span></span><span>&nbsp;</span><span class="syntax--keyword syntax--operator syntax--logical syntax--shell"><span>!</span></span><span>&nbsp;</span><span class="syntax--keyword syntax--operator syntax--logical syntax--shell"><span>-d</span></span><span>&nbsp;</span><span class="syntax--variable syntax--other syntax--bracket syntax--shell"><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>${</span></span><span>HOME</span><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>}</span></span></span><span>/bin&nbsp;</span><span class="syntax--punctuation syntax--definition syntax--logical-expression syntax--shell"><span>]]</span></span></span><span class="syntax--keyword syntax--operator syntax--list syntax--shell"><span>;</span></span><span>&nbsp;</span><span class="syntax--keyword syntax--control syntax--shell"><span>then</span></span><span>&nbsp;mkdir&nbsp;</span><span class="syntax--variable syntax--other syntax--bracket syntax--shell"><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>${</span></span><span>HOME</span><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>}</span></span></span><span>/bin</span><span class="syntax--keyword syntax--operator syntax--list syntax--shell"><span>;</span></span><span>&nbsp;</span><span class="syntax--keyword syntax--control syntax--shell"><span>fi</span></span></span></span></div><div class="line"><span class="syntax--source syntax--shell"><span>ln&nbsp;-s&nbsp;</span><span class="syntax--variable syntax--other syntax--bracket syntax--shell"><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>${</span></span><span>HOME</span><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>}</span></span></span><span>/FastQC/fastqc&nbsp;</span><span class="syntax--variable syntax--other syntax--bracket syntax--shell"><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>${</span></span><span>HOME</span><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>}</span></span></span><span>/bin/fastqc</span></span></div></pre>
+<h2 id="sickle">Sickle</h2>
+<p>Sickle is a quality-trimming software that can be used to trim your sequences to a minimum quality score. Sickle can be downloaded from the github page [<a href="https://github.com/najoshi/sickle">https://github.com/najoshi/sickle</a>].</p>
+<pre class="editor-colors lang-bash"><div class="line"><span class="syntax--source syntax--shell"><span class="syntax--support syntax--function syntax--builtin syntax--shell"><span>cd</span></span><span>&nbsp;</span><span class="syntax--variable syntax--other syntax--bracket syntax--shell"><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>${</span></span><span>HOME</span><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>}</span></span></span></span></div><div class="line"><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--line syntax--number-sign syntax--shell"><span class="syntax--punctuation syntax--definition syntax--comment syntax--shell"><span>#</span></span><span>Download&nbsp;sickle.&nbsp;Update&nbsp;the&nbsp;v1.33&nbsp;with&nbsp;the&nbsp;latest&nbsp;version&nbsp;number&nbsp;from&nbsp;the&nbsp;github&nbsp;page.</span></span></span></div><div class="line"><span class="syntax--source syntax--shell"><span>wget&nbsp;-O&nbsp;sickle.zip&nbsp;https://github.com/najoshi/sickle/archive/v1.33.zip</span></span></div><div class="line"><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--line syntax--number-sign syntax--shell"><span class="syntax--punctuation syntax--definition syntax--comment syntax--shell"><span>#</span></span><span>Unzip.&nbsp;If&nbsp;you&nbsp;are&nbsp;downloading&nbsp;a&nbsp;different&nbsp;version&nbsp;than&nbsp;1.33&nbsp;then&nbsp;the&nbsp;code&nbsp;will&nbsp;require&nbsp;modification.</span></span></span></div><div class="line"><span class="syntax--source syntax--shell"><span>unzip&nbsp;sickle.zip&nbsp;</span><span class="syntax--keyword syntax--operator syntax--list syntax--shell"><span>&amp;&amp;</span></span><span>&nbsp;</span><span class="syntax--support syntax--function syntax--builtin syntax--shell"><span>cd</span></span><span>&nbsp;sickle-1.33</span></span></div><div class="line"><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--line syntax--number-sign syntax--shell"><span class="syntax--punctuation syntax--definition syntax--comment syntax--shell"><span>#</span></span><span>Compile&nbsp;source&nbsp;code</span></span></span></div><div class="line"><span class="syntax--source syntax--shell"><span>make</span></span></div><div class="line"><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--line syntax--number-sign syntax--shell"><span class="syntax--punctuation syntax--definition syntax--comment syntax--shell"><span>#</span></span><span>Change&nbsp;permissions</span></span></span></div><div class="line"><span class="syntax--source syntax--shell"><span>chmod&nbsp;755&nbsp;sickle</span></span></div><div class="line"><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--line syntax--number-sign syntax--shell"><span class="syntax--punctuation syntax--definition syntax--comment syntax--shell"><span>#</span></span><span>Check&nbsp;if&nbsp;sickle&nbsp;is&nbsp;successfully&nbsp;built.&nbsp;If&nbsp;correctly&nbsp;done,&nbsp;the&nbsp;sickle&nbsp;version&nbsp;and&nbsp;developer&nbsp;information&nbsp;will&nbsp;be&nbsp;displayed</span></span></span></div><div class="line"><span class="syntax--source syntax--shell"><span>./sickle&nbsp;--version</span></span></div><div class="line"><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--line syntax--number-sign syntax--shell"><span class="syntax--punctuation syntax--definition syntax--comment syntax--shell"><span>#</span></span><span>Create&nbsp;symbolic&nbsp;link&nbsp;in&nbsp;the&nbsp;local&nbsp;bin&nbsp;folder.</span></span></span></div><div class="line"><span class="syntax--source syntax--shell"><span class="syntax--meta syntax--scope syntax--if-block syntax--shell"><span class="syntax--keyword syntax--control syntax--shell"><span>if</span></span><span>&nbsp;</span><span class="syntax--meta syntax--scope syntax--logical-expression syntax--shell"><span class="syntax--punctuation syntax--definition syntax--logical-expression syntax--shell"><span>[[</span></span><span>&nbsp;</span><span class="syntax--keyword syntax--operator syntax--logical syntax--shell"><span>!</span></span><span>&nbsp;</span><span class="syntax--keyword syntax--operator syntax--logical syntax--shell"><span>-d</span></span><span>&nbsp;</span><span class="syntax--variable syntax--other syntax--bracket syntax--shell"><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>${</span></span><span>HOME</span><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>}</span></span></span><span>/bin&nbsp;</span><span class="syntax--punctuation syntax--definition syntax--logical-expression syntax--shell"><span>]]</span></span></span><span class="syntax--keyword syntax--operator syntax--list syntax--shell"><span>;</span></span><span>&nbsp;</span><span class="syntax--keyword syntax--control syntax--shell"><span>then</span></span><span>&nbsp;mkdir&nbsp;</span><span class="syntax--variable syntax--other syntax--bracket syntax--shell"><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>${</span></span><span>HOME</span><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>}</span></span></span><span>/bin</span><span class="syntax--keyword syntax--operator syntax--list syntax--shell"><span>;</span></span><span>&nbsp;</span><span class="syntax--keyword syntax--control syntax--shell"><span>fi</span></span></span></span></div><div class="line"><span class="syntax--source syntax--shell"><span>ln&nbsp;-s&nbsp;</span><span class="syntax--variable syntax--other syntax--bracket syntax--shell"><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>${</span></span><span>HOME</span><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>}</span></span></span><span>/sickle-1.33/sickle&nbsp;</span><span class="syntax--variable syntax--other syntax--bracket syntax--shell"><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>${</span></span><span>HOME</span><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>}</span></span></span><span>/bin/sickle</span></span></div></pre>
+<h2 id="mothur">Mothur</h2>
+<p>Installing mothur is pretty easy. It comes precompiled as executable files.</p>
+<pre class="editor-colors lang-bash"><div class="line"><span class="syntax--source syntax--shell"><span class="syntax--support syntax--function syntax--builtin syntax--shell"><span>cd</span></span><span>&nbsp;</span><span class="syntax--variable syntax--other syntax--bracket syntax--shell"><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>${</span></span><span>HOME</span><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>}</span></span></span></span></div><div class="line"><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--line syntax--number-sign syntax--shell"><span class="syntax--punctuation syntax--definition syntax--comment syntax--shell"><span>#</span></span><span>Download&nbsp;mothur</span></span></span></div><div class="line"><span class="syntax--source syntax--shell"><span>wget&nbsp;-O&nbsp;Mothur.linux_64.zip&nbsp;https://github.com/mothur/mothur/releases/download/v1.39.4/Mothur.linux_64.zip</span></span></div><div class="line"><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--line syntax--number-sign syntax--shell"><span class="syntax--punctuation syntax--definition syntax--comment syntax--shell"><span>#</span></span><span>unzip</span></span></span></div><div class="line"><span class="syntax--source syntax--shell"><span>unzip&nbsp;../Mothur.linux_64.zip</span></span></div><div class="line"><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--line syntax--number-sign syntax--shell"><span class="syntax--punctuation syntax--definition syntax--comment syntax--shell"><span>#</span></span><span>Add&nbsp;mothur&nbsp;to&nbsp;your&nbsp;path&nbsp;variable</span></span></span></div><div class="line"><span class="syntax--source syntax--shell"><span class="syntax--storage syntax--modifier syntax--shell"><span>export</span></span><span>&nbsp;PATH=</span><span class="syntax--variable syntax--other syntax--normal syntax--shell"><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>$</span></span><span>PATH</span></span><span>:</span><span class="syntax--variable syntax--other syntax--bracket syntax--shell"><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>${</span></span><span>HOME</span><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>}</span></span></span><span>/mothur</span></span></div><div class="line"><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--line syntax--number-sign syntax--shell"><span class="syntax--punctuation syntax--definition syntax--comment syntax--shell"><span>#</span></span><span>Create&nbsp;symbolic&nbsp;link</span></span></span></div><div class="line"><span class="syntax--source syntax--shell"><span class="syntax--support syntax--function syntax--builtin syntax--shell"><span>cd</span></span><span>&nbsp;mothur</span></span></div><div class="line"><span class="syntax--source syntax--shell"><span class="syntax--meta syntax--scope syntax--if-block syntax--shell"><span class="syntax--keyword syntax--control syntax--shell"><span>if</span></span><span>&nbsp;</span><span class="syntax--meta syntax--scope syntax--logical-expression syntax--shell"><span class="syntax--punctuation syntax--definition syntax--logical-expression syntax--shell"><span>[[</span></span><span>&nbsp;</span><span class="syntax--keyword syntax--operator syntax--logical syntax--shell"><span>!</span></span><span>&nbsp;</span><span class="syntax--keyword syntax--operator syntax--logical syntax--shell"><span>-d</span></span><span>&nbsp;</span><span class="syntax--variable syntax--other syntax--bracket syntax--shell"><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>${</span></span><span>HOME</span><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>}</span></span></span><span>/bin&nbsp;</span><span class="syntax--punctuation syntax--definition syntax--logical-expression syntax--shell"><span>]]</span></span></span><span class="syntax--keyword syntax--operator syntax--list syntax--shell"><span>;</span></span><span>&nbsp;</span><span class="syntax--keyword syntax--control syntax--shell"><span>then</span></span><span>&nbsp;mkdir&nbsp;</span><span class="syntax--variable syntax--other syntax--bracket syntax--shell"><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>${</span></span><span>HOME</span><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>}</span></span></span><span>/bin</span><span class="syntax--keyword syntax--operator syntax--list syntax--shell"><span>;</span></span><span>&nbsp;</span><span class="syntax--keyword syntax--control syntax--shell"><span>fi</span></span></span></span></div><div class="line"><span class="syntax--source syntax--shell"><span class="syntax--meta syntax--scope syntax--for-in-loop syntax--shell"><span class="syntax--keyword syntax--control syntax--shell"><span>for</span></span><span>&nbsp;</span><span class="syntax--variable syntax--other syntax--loop syntax--shell"><span>i</span></span><span>&nbsp;</span><span class="syntax--keyword syntax--control syntax--shell"><span>in</span></span><span>&nbsp;</span><span class="syntax--string syntax--interpolated syntax--dollar syntax--shell"><span class="syntax--punctuation syntax--definition syntax--string syntax--begin syntax--shell"><span>$(</span></span><span>ls&nbsp;-1</span><span class="syntax--punctuation syntax--definition syntax--string syntax--end syntax--shell"><span>)</span></span></span><span class="syntax--keyword syntax--operator syntax--list syntax--shell"><span>;</span></span><span>&nbsp;</span><span class="syntax--keyword syntax--control syntax--shell"><span>do</span></span><span>&nbsp;ln&nbsp;-s&nbsp;-T&nbsp;</span><span class="syntax--variable syntax--other syntax--bracket syntax--shell"><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>${</span></span><span>HOME</span><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>}</span></span></span><span>/mothur/</span><span class="syntax--variable syntax--other syntax--normal syntax--shell"><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>$</span></span><span>i</span></span><span>&nbsp;</span><span class="syntax--variable syntax--other syntax--bracket syntax--shell"><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>${</span></span><span>HOME</span><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>}</span></span></span><span>/bin/</span><span class="syntax--variable syntax--other syntax--normal syntax--shell"><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>$</span></span><span>i</span></span><span class="syntax--keyword syntax--operator syntax--list syntax--shell"><span>;</span></span><span>&nbsp;</span><span class="syntax--keyword syntax--control syntax--shell"><span>done</span></span></span></span></div></pre>
+<h1 id="reference-databases">Reference Databases</h1>
+<p>We will now download reference databases that are required for amplicon sequencing analysis.</p>
+<h2 id="silva">Silva</h2>
+<p>The <a href="https://www.arb-silva.de/">SILVA database</a> is a comprehensive online, quality-checked database of aligned SSU  and LSU  rRNA sequences. The database needs a little bit of tweaking before it is compatible with mothur. The tweaked database is shared by the mothur creators <a href="https://www.mothur.org/wiki/Silva_reference_files">here</a> (If you are interested in the steps to tweak the original database, see this <a href="http://blog.mothur.org/2017/03/22/SILVA-v128-reference-files/">README</a> file posted by Pat Schloss). At the time of writing this tutorial, the latest version is Release 128. However we will still use v123 since the MiDAS database which we will also use was created using the v123. If you need the latest version of SILVA (v128) just head to the link given above and download it.</p>
+<pre class="editor-colors lang-bash"><div class="line"><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--line syntax--number-sign syntax--shell"><span class="syntax--punctuation syntax--definition syntax--comment syntax--shell"><span>#</span></span><span>Download&nbsp;the&nbsp;files</span></span></span></div><div class="line"><span class="syntax--source syntax--shell"><span>wget&nbsp;https://www.mothur.org/w/images/b/be/Silva.nr_v123.tgz</span></span></div><div class="line"><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--line syntax--number-sign syntax--shell"><span class="syntax--punctuation syntax--definition syntax--comment syntax--shell"><span>#</span></span><span>unzip</span></span></span></div><div class="line"><span class="syntax--source syntax--shell"><span>tar&nbsp;-xzvf&nbsp;Silva.nr_v123.tgz</span></span></div></pre>
+<h2 id="midas-taxonomy">MiDAS Taxonomy</h2>
+<p>The <a href="http://www.midasfieldguide.org/">MiDAS:Field Guide</a> was created <a href="http://database.oxfordjournals.org/content/2015/bav062.full?sid=6829f12b-4ae3-4258-acbe-d437059d55ac">McIlroy et al(2015)</a>. This is a online resource that aims to help researchers and operators identify microorganisms relevant to wastewater treatment and understand their role. As part of this project, the researchers have also created the MiDAS taxonomy which is a manual curation of the SILVA taxonomy.</p>
+<p>The MiDAS taxonomy comes formatted for QIIMe but not mothur. I created a script to format the taxonomy file to the mothur format (<em>github link coming soon</em>).</p>
+<p>I will provide a link to the pre-formatted taxonomy file and the aligned sequences (fasta file) to you.</p>
+<p>Now we have installed all necessary softwares and downloaded all required files. Let us proceed with some preprocessing steps and the actual analysis.</p>
+<h1 id="create-custom-alignment-database">Create Custom Alignment Database</h1>
+<p>We will first customize the SILVA database to our region of interest (V4). This is mainly to reduce computational memory and time required during our downstream analysis.</p>
+<pre class="editor-colors lang-bash"><div class="line"><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--line syntax--number-sign syntax--shell"><span class="syntax--punctuation syntax--definition syntax--comment syntax--shell"><span>#</span></span><span>Start&nbsp;mothur&nbsp;by&nbsp;just&nbsp;typing&nbsp;in&nbsp;mothur&nbsp;in&nbsp;the&nbsp;command&nbsp;line</span></span></span></div><div class="line"><span class="syntax--source syntax--shell"><span>mothur</span></span></div></pre>
+<p>If you see the output that ends with &quot;mothur &gt; &quot; this means you are in the mothur command line. All mothur commands will work now. If you need to execute some unix commands from inside mothur, you can use the function system() and enclose your unix commands inside the brackets.</p>
+<p>The command for performing a in-silico pcr is pcr.seqs. We will use the start and end parameter to specify the region of interest. This has been pre-determined for V4 sequencing.</p>
+<pre class="editor-colors lang-bash"><div class="line"><span class="syntax--source syntax--shell"><span>pcr.seqs</span><span class="syntax--meta syntax--scope syntax--subshell syntax--shell"><span class="syntax--punctuation syntax--definition syntax--subshell syntax--shell"><span>(</span></span><span>fasta=silva.nr_v123.align,&nbsp;start=13862,&nbsp;end=23444,&nbsp;keepdots=F,&nbsp;processors=5</span><span class="syntax--punctuation syntax--definition syntax--subshell syntax--shell"><span>)</span></span></span></span></div><div class="line"><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--line syntax--number-sign syntax--shell"><span class="syntax--punctuation syntax--definition syntax--comment syntax--shell"><span>#</span></span><span>Rename&nbsp;the&nbsp;pcr&nbsp;file</span></span></span></div><div class="line"><span class="syntax--source syntax--shell"><span>system</span><span class="syntax--meta syntax--scope syntax--subshell syntax--shell"><span class="syntax--punctuation syntax--definition syntax--subshell syntax--shell"><span>(</span></span><span>mv&nbsp;silva.nr_v123.pcr.align&nbsp;silva.nr_v123.v4.align</span><span class="syntax--punctuation syntax--definition syntax--subshell syntax--shell"><span>)</span></span></span></span></div></pre>
+<p>Next step is to preprocess our sequences to prepare them for mothur analysis.</p>
+<h1 id="preprocess-sequences">Preprocess Sequences</h1>
+<p>In this section of protocol we will perform the following steps:</p>
+<ol>
+<li>Change the name of the files.</li>
+<li>Decompress .fastq.gz files into fastq files.</li>
+<li>Create symbolic links in a separate fastq folder for quality checking by combining all the forward reads and combining all the reverse reads.</li>
+<li>Create FASTQC reports.</li>
+<li>Perform sickle filtering on the fastq files in the sample folders, output files with same file name but with a prefix of &quot;q&quot;.</li>
+<li>Create a batch file for mothur in the bash script.</li>
+<li>Create symbolic links for the quality-filtered files in a separate folder outside of the native folder organization.</li>
+</ol>
+<p>All these steps will be accomplished by a script called &quot;preprocess_sequences.sh&quot;. The &quot;.sh&quot; implies that it is a shell script. You will have to make some changes to the script. Here is the script (you don&#39;t have to copy paste anything. We will run the script directly from the file. Just copy the script to your working directory)</p>
+<p>The folder organization for using this code is : create a folder called &quot;seq_analysis&quot; in your home directory.Inside that transfer the project folder from Illumina basespace. Inside the project folder, there should be folders for each sample within which there are the forward and reverse reads. Here is an example folder organization</p>
+<p>Transfer the &quot;preprocess_sequences.sh&quot; into the &quot;seq_analysis&quot; folder. This folder will also contain the project folder &quot;ProjectName&quot;</p>
+<p>-HOME
+--seq_analysis
+---ProjectName
+----Sample1
+-----Sample1_R1.fastq.gz
+-----Sample1_R2.fastq.gz
+----Sample2
+-----Sample2_R1.fastq.gz
+-----Sample2_R2.fastq.gz</p>
+<pre class="editor-colors lang-bash"><div class="line"><span class="syntax--source syntax--shell"><span class="syntax--support syntax--function syntax--builtin syntax--shell"><span>cd</span></span><span>&nbsp;seq_analysis</span></span></div><div class="line"><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--line syntax--number-sign syntax--shell"><span class="syntax--punctuation syntax--definition syntax--comment syntax--shell"><span>#</span></span><span>We&nbsp;will&nbsp;first&nbsp;change&nbsp;a&nbsp;couple&nbsp;of&nbsp;things&nbsp;in&nbsp;the&nbsp;preprocess_sequences.sh&nbsp;file</span></span></span></div><div class="line"><span class="syntax--source syntax--shell"><span>vi&nbsp;preprocess_sequences,sh</span></span></div></pre>
+<p>Now the script will look like this.</p>
+<pre class="editor-colors lang-bash"><div class="line"><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--line syntax--number-sign syntax--shebang syntax--shell"><span class="syntax--punctuation syntax--definition syntax--comment syntax--shebang syntax--shell"><span>#!</span></span><span>/bin/bash</span></span></span></div><div class="line"><span class="syntax--source syntax--shell"><span>&nbsp;</span></span></div><div class="line"><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--line syntax--number-sign syntax--shell"><span class="syntax--punctuation syntax--definition syntax--comment syntax--shell"><span>#</span></span><span>The&nbsp;folder&nbsp;organization&nbsp;for&nbsp;using&nbsp;this&nbsp;code&nbsp;is&nbsp;:&nbsp;create&nbsp;a&nbsp;folder&nbsp;called&nbsp;&quot;seq_analysis&quot;&nbsp;in&nbsp;your&nbsp;home&nbsp;directory.&nbsp;Inside&nbsp;that&nbsp;transfer&nbsp;the&nbsp;project&nbsp;folder&nbsp;from&nbsp;Illumina&nbsp;basespace&nbsp;to&nbsp;the&nbsp;mothur&nbsp;folder.&nbsp;Inside&nbsp;the&nbsp;project&nbsp;folder,&nbsp;there&nbsp;should&nbsp;be&nbsp;folders&nbsp;for&nbsp;each&nbsp;sample&nbsp;within&nbsp;which&nbsp;there&nbsp;are&nbsp;the&nbsp;forward&nbsp;and&nbsp;reverse&nbsp;reads.</span></span></span></div><div class="line"><span class="syntax--source syntax--shell"><span>&nbsp;</span></span></div><div class="line"><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--line syntax--number-sign syntax--shell"><span class="syntax--punctuation syntax--definition syntax--comment syntax--shell"><span>#</span></span><span>All&nbsp;the&nbsp;operations&nbsp;performed&nbsp;here&nbsp;are&nbsp;from&nbsp;the&nbsp;project&nbsp;directory&nbsp;(ProjectName).&nbsp;So&nbsp;navigate&nbsp;first&nbsp;to&nbsp;the&nbsp;project&nbsp;directory&nbsp;before&nbsp;running&nbsp;this&nbsp;script</span></span></span></div><div class="line"><span class="syntax--source syntax--shell"><span>&nbsp;</span></span></div><div class="line"><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--line syntax--number-sign syntax--shell"><span class="syntax--punctuation syntax--definition syntax--comment syntax--shell"><span>#</span></span><span>Create&nbsp;necessary&nbsp;folders</span></span></span></div><div class="line"><span class="syntax--source syntax--shell"><span>parent=</span><span class="syntax--string syntax--interpolated syntax--backtick syntax--shell"><span class="syntax--punctuation syntax--definition syntax--string syntax--begin syntax--shell"><span>`</span></span><span>pwd</span><span class="syntax--punctuation syntax--definition syntax--string syntax--end syntax--shell"><span>`</span></span></span><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="syntax--comment syntax--line syntax--number-sign syntax--shell"><span class="syntax--punctuation syntax--definition syntax--comment syntax--shell"><span>#</span></span><span>Store&nbsp;the&nbsp;project&nbsp;directory</span></span></span></div><div class="line"><span class="syntax--source syntax--shell"><span>mkdir&nbsp;</span><span class="syntax--variable syntax--other syntax--bracket syntax--shell"><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>${</span></span><span>HOME</span><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>}</span></span></span><span>/mothur/fastqc_files/&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="syntax--comment syntax--line syntax--number-sign syntax--shell"><span class="syntax--punctuation syntax--definition syntax--comment syntax--shell"><span>#</span></span><span>Create&nbsp;a&nbsp;folder&nbsp;for&nbsp;fastqc</span></span></span></div><div class="line"><span class="syntax--source syntax--shell"><span>&nbsp;</span></span></div><div class="line"><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--line syntax--number-sign syntax--shell"><span class="syntax--punctuation syntax--definition syntax--comment syntax--shell"><span>#</span></span><span>Remove&nbsp;-randomnumber&nbsp;from&nbsp;folder&nbsp;names</span></span></span></div><div class="line"><span class="syntax--source syntax--shell"><span class="syntax--meta syntax--scope syntax--for-in-loop syntax--shell"><span class="syntax--keyword syntax--control syntax--shell"><span>for</span></span><span>&nbsp;</span><span class="syntax--variable syntax--other syntax--loop syntax--shell"><span>folder</span></span><span>&nbsp;</span><span class="syntax--keyword syntax--control syntax--shell"><span>in</span></span><span>&nbsp;</span><span class="syntax--keyword syntax--operator syntax--glob syntax--shell"><span>*</span></span><span class="syntax--keyword syntax--operator syntax--list syntax--shell"><span>;</span></span><span>&nbsp;</span><span class="syntax--keyword syntax--control syntax--shell"><span>do</span></span></span></span></div><div class="line"><span class="syntax--source syntax--shell"><span class="syntax--meta syntax--scope syntax--for-in-loop syntax--shell"><span>&nbsp;&nbsp;&nbsp;&nbsp;mv&nbsp;</span><span class="syntax--variable syntax--other syntax--normal syntax--shell"><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>$</span></span><span>folder</span></span><span>&nbsp;</span><span class="syntax--variable syntax--other syntax--bracket syntax--shell"><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>${</span></span><span>folder</span><span class="syntax--keyword syntax--operator syntax--expansion syntax--shell"><span>%</span></span><span>-</span><span class="syntax--keyword syntax--operator syntax--expansion syntax--shell"><span>*</span></span><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>}</span></span></span><span class="syntax--keyword syntax--operator syntax--list syntax--shell"><span>;</span></span><span>&nbsp;</span><span class="syntax--comment syntax--line syntax--number-sign syntax--shell"><span class="syntax--punctuation syntax--definition syntax--comment syntax--shell"><span>#</span></span><span>Remove&nbsp;-&nbsp;and&nbsp;following&nbsp;characters&nbsp;from&nbsp;end&nbsp;of&nbsp;folder&nbsp;name</span></span></span></span></div><div class="line"><span class="syntax--source syntax--shell"><span class="syntax--meta syntax--scope syntax--for-in-loop syntax--shell"><span class="syntax--keyword syntax--control syntax--shell"><span>done</span></span></span></span></div><div class="line"><span class="syntax--source syntax--shell"><span>&nbsp;</span></span></div><div class="line"><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--line syntax--number-sign syntax--shell"><span class="syntax--punctuation syntax--definition syntax--comment syntax--shell"><span>#</span></span><span>Change&nbsp;.fastq.gz&nbsp;file&nbsp;names&nbsp;into&nbsp;foldername_R1/R2.fastq.gz</span></span></span></div><div class="line"><span class="syntax--source syntax--shell"><span>subdirs=</span><span class="syntax--string syntax--interpolated syntax--backtick syntax--shell"><span class="syntax--punctuation syntax--definition syntax--string syntax--begin syntax--shell"><span>`</span></span><span>ls&nbsp;</span><span class="syntax--variable syntax--other syntax--normal syntax--shell"><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>$</span></span><span>parent</span></span><span class="syntax--punctuation syntax--definition syntax--string syntax--end syntax--shell"><span>`</span></span></span><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="syntax--comment syntax--line syntax--number-sign syntax--shell"><span class="syntax--punctuation syntax--definition syntax--comment syntax--shell"><span>#</span></span><span>Store&nbsp;the&nbsp;names&nbsp;of&nbsp;all&nbsp;sample&nbsp;folders</span></span></span></div><div class="line"><span class="syntax--source syntax--shell"><span class="syntax--meta syntax--scope syntax--for-in-loop syntax--shell"><span class="syntax--keyword syntax--control syntax--shell"><span>for</span></span><span>&nbsp;</span><span class="syntax--variable syntax--other syntax--loop syntax--shell"><span>foldername</span></span><span>&nbsp;</span><span class="syntax--keyword syntax--control syntax--shell"><span>in</span></span><span>&nbsp;</span><span class="syntax--variable syntax--other syntax--normal syntax--shell"><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>$</span></span><span>subdirs</span></span><span class="syntax--keyword syntax--operator syntax--list syntax--shell"><span>;</span></span><span>&nbsp;</span><span class="syntax--keyword syntax--control syntax--shell"><span>do</span></span></span></span></div><div class="line"><span class="syntax--source syntax--shell"><span class="syntax--meta syntax--scope syntax--for-in-loop syntax--shell"><span>&nbsp;&nbsp;&nbsp;&nbsp;files=</span><span class="syntax--string syntax--interpolated syntax--backtick syntax--shell"><span class="syntax--punctuation syntax--definition syntax--string syntax--begin syntax--shell"><span>`</span></span><span>ls&nbsp;</span><span class="syntax--variable syntax--other syntax--bracket syntax--shell"><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>${</span></span><span>parent</span><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>}</span></span></span><span>/</span><span class="syntax--variable syntax--other syntax--bracket syntax--shell"><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>${</span></span><span>foldername</span><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>}</span></span></span><span>/</span><span class="syntax--punctuation syntax--definition syntax--string syntax--end syntax--shell"><span>`</span></span></span><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="syntax--comment syntax--line syntax--number-sign syntax--shell"><span class="syntax--punctuation syntax--definition syntax--comment syntax--shell"><span>#</span></span><span>Store&nbsp;the&nbsp;names&nbsp;of&nbsp;files&nbsp;inside&nbsp;the&nbsp;sample&nbsp;folder</span></span></span></span></div><div class="line"><span class="syntax--source syntax--shell"><span class="syntax--meta syntax--scope syntax--for-in-loop syntax--shell"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="syntax--meta syntax--scope syntax--for-in-loop syntax--shell"><span class="syntax--keyword syntax--control syntax--shell"><span>for</span></span><span>&nbsp;</span><span class="syntax--variable syntax--other syntax--loop syntax--shell"><span>filename</span></span><span>&nbsp;</span><span class="syntax--keyword syntax--control syntax--shell"><span>in</span></span><span>&nbsp;</span><span class="syntax--variable syntax--other syntax--normal syntax--shell"><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>$</span></span><span>files</span></span><span class="syntax--keyword syntax--operator syntax--list syntax--shell"><span>;</span></span><span>&nbsp;</span><span class="syntax--keyword syntax--control syntax--shell"><span>do</span></span></span></span></span></div><div class="line"><span class="syntax--source syntax--shell"><span class="syntax--meta syntax--scope syntax--for-in-loop syntax--shell"><span class="syntax--meta syntax--scope syntax--for-in-loop syntax--shell"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name=</span><span class="syntax--variable syntax--other syntax--bracket syntax--shell"><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>${</span></span><span>filename</span><span class="syntax--keyword syntax--operator syntax--expansion syntax--shell"><span>%</span></span><span>.fastq.gz</span><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>}</span></span></span><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="syntax--comment syntax--line syntax--number-sign syntax--shell"><span class="syntax--punctuation syntax--definition syntax--comment syntax--shell"><span>#</span></span><span>store&nbsp;the&nbsp;filename&nbsp;without&nbsp;the&nbsp;extension</span></span></span></span></span></div><div class="line"><span class="syntax--source syntax--shell"><span class="syntax--meta syntax--scope syntax--for-in-loop syntax--shell"><span class="syntax--meta syntax--scope syntax--for-in-loop syntax--shell"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name2=</span><span class="syntax--variable syntax--other syntax--bracket syntax--shell"><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>${</span></span><span>name</span><span class="syntax--keyword syntax--operator syntax--expansion syntax--shell"><span>#</span><span>*</span></span><span>L001_</span><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>}</span></span></span><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="syntax--comment syntax--line syntax--number-sign syntax--shell"><span class="syntax--punctuation syntax--definition syntax--comment syntax--shell"><span>#</span></span><span>Remove&nbsp;everything&nbsp;including&nbsp;and&nbsp;upto&nbsp;L001_&nbsp;from&nbsp;the&nbsp;front</span></span></span></span></span></div><div class="line"><span class="syntax--source syntax--shell"><span class="syntax--meta syntax--scope syntax--for-in-loop syntax--shell"><span class="syntax--meta syntax--scope syntax--for-in-loop syntax--shell"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name3=</span><span class="syntax--variable syntax--other syntax--bracket syntax--shell"><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>${</span></span><span>name2</span><span class="syntax--keyword syntax--operator syntax--expansion syntax--shell"><span>%</span></span><span>_001</span><span class="syntax--keyword syntax--operator syntax--expansion syntax--shell"><span>*</span></span><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>}</span></span></span><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="syntax--comment syntax--line syntax--number-sign syntax--shell"><span class="syntax--punctuation syntax--definition syntax--comment syntax--shell"><span>#</span></span><span>Remove&nbsp;everything&nbsp;and&nbsp;after&nbsp;_001&nbsp;from&nbsp;the&nbsp;back</span></span></span></span></span></div><div class="line"><span class="syntax--source syntax--shell"><span class="syntax--meta syntax--scope syntax--for-in-loop syntax--shell"><span class="syntax--meta syntax--scope syntax--for-in-loop syntax--shell"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;newfilename=</span><span class="syntax--variable syntax--other syntax--bracket syntax--shell"><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>${</span></span><span>foldername</span><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>}</span></span></span><span>_</span><span class="syntax--variable syntax--other syntax--bracket syntax--shell"><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>${</span></span><span>name3</span><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>}</span></span></span><span>.fastq.gz&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="syntax--comment syntax--line syntax--number-sign syntax--shell"><span class="syntax--punctuation syntax--definition syntax--comment syntax--shell"><span>#</span></span><span>Attach&nbsp;the&nbsp;foldername&nbsp;to&nbsp;R1/R2&nbsp;and&nbsp;create&nbsp;new&nbsp;file&nbsp;name</span></span></span></span></span></div><div class="line"><span class="syntax--source syntax--shell"><span class="syntax--meta syntax--scope syntax--for-in-loop syntax--shell"><span class="syntax--meta syntax--scope syntax--for-in-loop syntax--shell"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mv&nbsp;</span><span class="syntax--variable syntax--other syntax--bracket syntax--shell"><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>${</span></span><span>parent</span><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>}</span></span></span><span>/</span><span class="syntax--variable syntax--other syntax--bracket syntax--shell"><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>${</span></span><span>foldername</span><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>}</span></span></span><span>/</span><span class="syntax--variable syntax--other syntax--normal syntax--shell"><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>$</span></span><span>filename</span></span><span>&nbsp;</span><span class="syntax--variable syntax--other syntax--bracket syntax--shell"><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>${</span></span><span>parent</span><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>}</span></span></span><span>/</span><span class="syntax--variable syntax--other syntax--bracket syntax--shell"><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>${</span></span><span>foldername</span><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>}</span></span></span><span>/</span><span class="syntax--variable syntax--other syntax--normal syntax--shell"><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>$</span></span><span>newfilename</span></span><span>&nbsp;</span><span class="syntax--comment syntax--line syntax--number-sign syntax--shell"><span class="syntax--punctuation syntax--definition syntax--comment syntax--shell"><span>#</span></span><span>Rename&nbsp;the&nbsp;old&nbsp;file&nbsp;with&nbsp;the&nbsp;new&nbsp;file&nbsp;name</span></span></span></span></span></div><div class="line"><span class="syntax--source syntax--shell"><span class="syntax--meta syntax--scope syntax--for-in-loop syntax--shell"><span class="syntax--meta syntax--scope syntax--for-in-loop syntax--shell"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gunzip&nbsp;-d&nbsp;</span><span class="syntax--variable syntax--other syntax--bracket syntax--shell"><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>${</span></span><span>parent</span><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>}</span></span></span><span>/</span><span class="syntax--variable syntax--other syntax--bracket syntax--shell"><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>${</span></span><span>foldername</span><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>}</span></span></span><span>/</span><span class="syntax--variable syntax--other syntax--normal syntax--shell"><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>$</span></span><span>newfilename</span></span><span>&nbsp;</span><span class="syntax--comment syntax--line syntax--number-sign syntax--shell"><span class="syntax--punctuation syntax--definition syntax--comment syntax--shell"><span>#</span></span><span>Decompress&nbsp;the&nbsp;fastq.gz&nbsp;file&nbsp;to&nbsp;fastq</span></span></span></span></span></div><div class="line"><span class="syntax--source syntax--shell"><span class="syntax--meta syntax--scope syntax--for-in-loop syntax--shell"><span class="syntax--meta syntax--scope syntax--for-in-loop syntax--shell"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ln&nbsp;-s&nbsp;</span><span class="syntax--variable syntax--other syntax--bracket syntax--shell"><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>${</span></span><span>parent</span><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>}</span></span></span><span>/</span><span class="syntax--variable syntax--other syntax--bracket syntax--shell"><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>${</span></span><span>foldername</span><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>}</span></span></span><span>/</span><span class="syntax--variable syntax--other syntax--bracket syntax--shell"><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>${</span></span><span>newfilename</span><span class="syntax--keyword syntax--operator syntax--expansion syntax--shell"><span>%</span></span><span>.fastq.gz</span><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>}</span></span></span><span>.fastq&nbsp;</span><span class="syntax--variable syntax--other syntax--bracket syntax--shell"><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>${</span></span><span>HOME</span><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>}</span></span></span><span>/mothur/fastqc_files/</span><span class="syntax--variable syntax--other syntax--bracket syntax--shell"><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>${</span></span><span>newfilename</span><span class="syntax--keyword syntax--operator syntax--expansion syntax--shell"><span>%</span></span><span>.fastq.gz</span><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>}</span></span></span><span>.fastq</span></span></span></span></div><div class="line"><span class="syntax--source syntax--shell"><span class="syntax--meta syntax--scope syntax--for-in-loop syntax--shell"><span class="syntax--meta syntax--scope syntax--for-in-loop syntax--shell"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="syntax--keyword syntax--control syntax--shell"><span>done</span></span></span></span></span></div><div class="line"><span class="syntax--source syntax--shell"><span class="syntax--meta syntax--scope syntax--for-in-loop syntax--shell"><span class="syntax--keyword syntax--control syntax--shell"><span>done</span></span></span></span></div><div class="line"><span class="syntax--source syntax--shell"><span>&nbsp;</span></span></div><div class="line"><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--line syntax--number-sign syntax--shell"><span class="syntax--punctuation syntax--definition syntax--comment syntax--shell"><span>#</span></span><span>Create&nbsp;FASTQC&nbsp;Reports.&nbsp;This&nbsp;assumes&nbsp;that&nbsp;you&nbsp;have&nbsp;installed&nbsp;FASTQC&nbsp;and&nbsp;have&nbsp;created&nbsp;a&nbsp;system&nbsp;path&nbsp;in&nbsp;/bin&nbsp;folder</span></span></span></div><div class="line"><span class="syntax--source syntax--shell"><span>&nbsp;</span></span></div><div class="line"><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--line syntax--number-sign syntax--shell"><span class="syntax--punctuation syntax--definition syntax--comment syntax--shell"><span>#</span></span><span>First&nbsp;concatenate&nbsp;all&nbsp;the&nbsp;forwards&nbsp;and&nbsp;reverse&nbsp;reads.&nbsp;Remove&nbsp;all&nbsp;the&nbsp;symbolic&nbsp;links.</span></span></span></div><div class="line"><span class="syntax--source syntax--shell"><span>cat&nbsp;</span><span class="syntax--variable syntax--other syntax--bracket syntax--shell"><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>${</span></span><span>HOME</span><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>}</span></span></span><span>/mothur/fastqc_files/</span><span class="syntax--keyword syntax--operator syntax--glob syntax--shell"><span>*</span></span><span>R1.fastq</span><span class="syntax--keyword syntax--operator syntax--redirect syntax--shell"><span>&gt;</span></span><span>&nbsp;</span><span class="syntax--variable syntax--other syntax--bracket syntax--shell"><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>${</span></span><span>HOME</span><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>}</span></span></span><span>/mothur/fastqc_files/forward_reads.fastq</span></span></div><div class="line"><span class="syntax--source syntax--shell"><span>cat&nbsp;</span><span class="syntax--variable syntax--other syntax--bracket syntax--shell"><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>${</span></span><span>HOME</span><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>}</span></span></span><span>/mothur/fastqc_files/</span><span class="syntax--keyword syntax--operator syntax--glob syntax--shell"><span>*</span></span><span>R2.fastq</span><span class="syntax--keyword syntax--operator syntax--redirect syntax--shell"><span>&gt;</span></span><span>&nbsp;</span><span class="syntax--variable syntax--other syntax--bracket syntax--shell"><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>${</span></span><span>HOME</span><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>}</span></span></span><span>/mothur/fastqc_files/reverse_reads.fastq</span></span></div><div class="line"><span class="syntax--source syntax--shell"><span>rm&nbsp;</span><span class="syntax--variable syntax--other syntax--bracket syntax--shell"><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>${</span></span><span>HOME</span><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>}</span></span></span><span>/mothur/fastqc_files/</span><span class="syntax--keyword syntax--operator syntax--glob syntax--shell"><span>*</span></span><span>R1.fastq</span></span></div><div class="line"><span class="syntax--source syntax--shell"><span>rm&nbsp;</span><span class="syntax--variable syntax--other syntax--bracket syntax--shell"><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>${</span></span><span>HOME</span><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>}</span></span></span><span>/mothur/fastqc_files/</span><span class="syntax--keyword syntax--operator syntax--glob syntax--shell"><span>*</span></span><span>R2.fastq</span></span></div><div class="line"><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--line syntax--number-sign syntax--shell"><span class="syntax--punctuation syntax--definition syntax--comment syntax--shell"><span>#</span></span><span>Run&nbsp;FASTQC</span></span></span></div><div class="line"><span class="syntax--source syntax--shell"><span>fastqc&nbsp;</span><span class="syntax--variable syntax--other syntax--bracket syntax--shell"><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>${</span></span><span>HOME</span><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>}</span></span></span><span>/mothur/fastqc_files/forward_reads.fastq&nbsp;-o&nbsp;</span><span class="syntax--variable syntax--other syntax--bracket syntax--shell"><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>${</span></span><span>HOME</span><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>}</span></span></span><span>/mothur/fastqc_files/</span></span></div><div class="line"><span class="syntax--source syntax--shell"><span>fastqc&nbsp;</span><span class="syntax--variable syntax--other syntax--bracket syntax--shell"><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>${</span></span><span>HOME</span><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>}</span></span></span><span>/mothur/fastqc_files/reverse_reads.fastq&nbsp;-o&nbsp;</span><span class="syntax--variable syntax--other syntax--bracket syntax--shell"><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>${</span></span><span>HOME</span><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>}</span></span></span><span>/mothur/fastqc_files/</span></span></div><div class="line"><span class="syntax--source syntax--shell"><span>module&nbsp;load&nbsp;sickle/1.33</span></span></div><div class="line"><span class="syntax--source syntax--shell"><span>subdirs=</span><span class="syntax--string syntax--interpolated syntax--backtick syntax--shell"><span class="syntax--punctuation syntax--definition syntax--string syntax--begin syntax--shell"><span>`</span></span><span>ls&nbsp;</span><span class="syntax--variable syntax--other syntax--normal syntax--shell"><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>$</span></span><span>parent</span></span><span class="syntax--punctuation syntax--definition syntax--string syntax--end syntax--shell"><span>`</span></span></span><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="syntax--comment syntax--line syntax--number-sign syntax--shell"><span class="syntax--punctuation syntax--definition syntax--comment syntax--shell"><span>#</span></span><span>Store&nbsp;the&nbsp;names&nbsp;of&nbsp;all&nbsp;sample&nbsp;folders</span></span></span></div><div class="line"><span class="syntax--source syntax--shell"><span class="syntax--meta syntax--scope syntax--for-in-loop syntax--shell"><span class="syntax--keyword syntax--control syntax--shell"><span>for</span></span><span>&nbsp;</span><span class="syntax--variable syntax--other syntax--loop syntax--shell"><span>foldername</span></span><span>&nbsp;</span><span class="syntax--keyword syntax--control syntax--shell"><span>in</span></span><span>&nbsp;</span><span class="syntax--variable syntax--other syntax--normal syntax--shell"><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>$</span></span><span>subdirs</span></span><span class="syntax--keyword syntax--operator syntax--list syntax--shell"><span>;</span></span><span>&nbsp;</span><span class="syntax--keyword syntax--control syntax--shell"><span>do</span></span></span></span></div><div class="line"><span class="syntax--source syntax--shell"><span class="syntax--meta syntax--scope syntax--for-in-loop syntax--shell"><span>&nbsp;&nbsp;&nbsp;&nbsp;forward=</span><span class="syntax--string syntax--interpolated syntax--backtick syntax--shell"><span class="syntax--punctuation syntax--definition syntax--string syntax--begin syntax--shell"><span>`</span></span><span>ls&nbsp;</span><span class="syntax--variable syntax--other syntax--bracket syntax--shell"><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>${</span></span><span>parent</span><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>}</span></span></span><span>/</span><span class="syntax--variable syntax--other syntax--bracket syntax--shell"><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>${</span></span><span>foldername</span><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>}</span></span></span><span>/</span><span class="syntax--keyword syntax--operator syntax--glob syntax--shell"><span>*</span></span><span>R1.fastq</span><span class="syntax--punctuation syntax--definition syntax--string syntax--end syntax--shell"><span>`</span></span></span><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="syntax--comment syntax--line syntax--number-sign syntax--shell"><span class="syntax--punctuation syntax--definition syntax--comment syntax--shell"><span>#</span></span><span>Store&nbsp;the&nbsp;forward&nbsp;read&nbsp;file&nbsp;name</span></span></span></span></div><div class="line"><span class="syntax--source syntax--shell"><span class="syntax--meta syntax--scope syntax--for-in-loop syntax--shell"><span>&nbsp;&nbsp;&nbsp;&nbsp;reverse=</span><span class="syntax--string syntax--interpolated syntax--backtick syntax--shell"><span class="syntax--punctuation syntax--definition syntax--string syntax--begin syntax--shell"><span>`</span></span><span>ls&nbsp;</span><span class="syntax--variable syntax--other syntax--bracket syntax--shell"><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>${</span></span><span>parent</span><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>}</span></span></span><span>/</span><span class="syntax--variable syntax--other syntax--bracket syntax--shell"><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>${</span></span><span>foldername</span><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>}</span></span></span><span>/</span><span class="syntax--keyword syntax--operator syntax--glob syntax--shell"><span>*</span></span><span>R2.fastq</span><span class="syntax--punctuation syntax--definition syntax--string syntax--end syntax--shell"><span>`</span></span></span><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="syntax--comment syntax--line syntax--number-sign syntax--shell"><span class="syntax--punctuation syntax--definition syntax--comment syntax--shell"><span>#</span></span><span>Store&nbsp;the&nbsp;reverse&nbsp;read&nbsp;file&nbsp;name</span></span></span></span></div><div class="line"><span class="syntax--source syntax--shell"><span class="syntax--meta syntax--scope syntax--for-in-loop syntax--shell"><span>&nbsp;&nbsp;&nbsp;&nbsp;sickle&nbsp;pe&nbsp;-f&nbsp;</span><span class="syntax--variable syntax--other syntax--bracket syntax--shell"><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>${</span></span><span>forward</span><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>}</span></span></span><span>&nbsp;&nbsp;-r&nbsp;</span><span class="syntax--variable syntax--other syntax--bracket syntax--shell"><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>${</span></span><span>reverse</span><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>}</span></span></span><span>&nbsp;-t&nbsp;sanger&nbsp;-o&nbsp;</span><span class="syntax--variable syntax--other syntax--bracket syntax--shell"><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>${</span></span><span>parent</span><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>}</span></span></span><span>/</span><span class="syntax--variable syntax--other syntax--bracket syntax--shell"><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>${</span></span><span>foldername</span><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>}</span></span></span><span>/q</span><span class="syntax--string syntax--interpolated syntax--dollar syntax--shell"><span class="syntax--punctuation syntax--definition syntax--string syntax--begin syntax--shell"><span>$(</span></span><span>basename&nbsp;</span><span class="syntax--variable syntax--other syntax--normal syntax--shell"><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>$</span></span><span>forward</span></span><span class="syntax--punctuation syntax--definition syntax--string syntax--end syntax--shell"><span>)</span></span></span><span>&nbsp;-p&nbsp;</span><span class="syntax--variable syntax--other syntax--bracket syntax--shell"><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>${</span></span><span>parent</span><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>}</span></span></span><span>/</span><span class="syntax--variable syntax--other syntax--bracket syntax--shell"><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>${</span></span><span>foldername</span><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>}</span></span></span><span>/q</span><span class="syntax--string syntax--interpolated syntax--dollar syntax--shell"><span class="syntax--punctuation syntax--definition syntax--string syntax--begin syntax--shell"><span>$(</span></span><span>basename&nbsp;</span><span class="syntax--variable syntax--other syntax--normal syntax--shell"><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>$</span></span><span>reverse</span></span><span class="syntax--punctuation syntax--definition syntax--string syntax--end syntax--shell"><span>)</span></span></span><span>&nbsp;-s&nbsp;</span><span class="syntax--variable syntax--other syntax--bracket syntax--shell"><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>${</span></span><span>parent</span><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>}</span></span></span><span>/</span><span class="syntax--variable syntax--other syntax--bracket syntax--shell"><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>${</span></span><span>foldername</span><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>}</span></span></span><span>/</span><span class="syntax--variable syntax--other syntax--bracket syntax--shell"><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>${</span></span><span>foldername</span><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>}</span></span></span><span>_unpaired.fastq&nbsp;-q&nbsp;20</span></span></span></div><div class="line"><span class="syntax--source syntax--shell"><span class="syntax--meta syntax--scope syntax--for-in-loop syntax--shell"><span class="syntax--keyword syntax--control syntax--shell"><span>done</span></span></span></span></div><div class="line"><span class="syntax--source syntax--shell"><span>&nbsp;</span></span></div><div class="line"><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--line syntax--number-sign syntax--shell"><span class="syntax--punctuation syntax--definition syntax--comment syntax--shell"><span>#</span></span><span>Create&nbsp;the&nbsp;mothur&nbsp;batch&nbsp;file</span></span></span></div><div class="line"><span class="syntax--source syntax--shell"><span>touch&nbsp;</span><span class="syntax--variable syntax--other syntax--bracket syntax--shell"><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>${</span></span><span>HOME</span><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>}</span></span></span><span>/mothur/mothur.batch.files.txt</span></span></div><div class="line"><span class="syntax--source syntax--shell"><span class="syntax--meta syntax--scope syntax--for-in-loop syntax--shell"><span class="syntax--keyword syntax--control syntax--shell"><span>for</span></span><span>&nbsp;</span><span class="syntax--variable syntax--other syntax--loop syntax--shell"><span>foldername</span></span><span>&nbsp;</span><span class="syntax--keyword syntax--control syntax--shell"><span>in</span></span><span>&nbsp;</span><span class="syntax--variable syntax--other syntax--normal syntax--shell"><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>$</span></span><span>subdirs</span></span><span class="syntax--keyword syntax--operator syntax--list syntax--shell"><span>;</span></span><span>&nbsp;</span><span class="syntax--keyword syntax--control syntax--shell"><span>do</span></span></span></span></div><div class="line"><span class="syntax--source syntax--shell"><span class="syntax--meta syntax--scope syntax--for-in-loop syntax--shell"><span>&nbsp;&nbsp;&nbsp;&nbsp;forward=</span><span class="syntax--string syntax--interpolated syntax--backtick syntax--shell"><span class="syntax--punctuation syntax--definition syntax--string syntax--begin syntax--shell"><span>`</span></span><span>ls&nbsp;</span><span class="syntax--variable syntax--other syntax--bracket syntax--shell"><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>${</span></span><span>parent</span><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>}</span></span></span><span>/</span><span class="syntax--variable syntax--other syntax--bracket syntax--shell"><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>${</span></span><span>foldername</span><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>}</span></span></span><span>/q</span><span class="syntax--keyword syntax--operator syntax--glob syntax--shell"><span>*</span></span><span>R1.fastq</span><span class="syntax--punctuation syntax--definition syntax--string syntax--end syntax--shell"><span>`</span></span></span><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="syntax--comment syntax--line syntax--number-sign syntax--shell"><span class="syntax--punctuation syntax--definition syntax--comment syntax--shell"><span>#</span></span><span>Store&nbsp;the&nbsp;forward&nbsp;quality-filtered&nbsp;read&nbsp;file&nbsp;name</span></span></span></span></div><div class="line"><span class="syntax--source syntax--shell"><span class="syntax--meta syntax--scope syntax--for-in-loop syntax--shell"><span>&nbsp;&nbsp;&nbsp;&nbsp;reverse=</span><span class="syntax--string syntax--interpolated syntax--backtick syntax--shell"><span class="syntax--punctuation syntax--definition syntax--string syntax--begin syntax--shell"><span>`</span></span><span>ls&nbsp;</span><span class="syntax--variable syntax--other syntax--bracket syntax--shell"><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>${</span></span><span>parent</span><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>}</span></span></span><span>/</span><span class="syntax--variable syntax--other syntax--bracket syntax--shell"><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>${</span></span><span>foldername</span><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>}</span></span></span><span>/q</span><span class="syntax--keyword syntax--operator syntax--glob syntax--shell"><span>*</span></span><span>R2.fastq</span><span class="syntax--punctuation syntax--definition syntax--string syntax--end syntax--shell"><span>`</span></span></span><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="syntax--comment syntax--line syntax--number-sign syntax--shell"><span class="syntax--punctuation syntax--definition syntax--comment syntax--shell"><span>#</span></span><span>Store&nbsp;the&nbsp;reverse&nbsp;quality-filtered&nbsp;read&nbsp;file&nbsp;name</span></span></span></span></div><div class="line"><span class="syntax--source syntax--shell"><span class="syntax--meta syntax--scope syntax--for-in-loop syntax--shell"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="syntax--support syntax--function syntax--builtin syntax--shell"><span>echo</span></span><span>&nbsp;-e&nbsp;</span><span class="syntax--string syntax--quoted syntax--double syntax--shell"><span class="syntax--punctuation syntax--definition syntax--string syntax--begin syntax--shell"><span>&quot;</span></span><span class="syntax--variable syntax--other syntax--normal syntax--shell"><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>$</span></span><span>foldername</span></span><span>\t</span><span class="syntax--string syntax--interpolated syntax--dollar syntax--shell"><span class="syntax--punctuation syntax--definition syntax--string syntax--begin syntax--shell"><span>$(</span></span><span>basename&nbsp;</span><span class="syntax--variable syntax--other syntax--normal syntax--shell"><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>$</span></span><span>forward</span></span><span class="syntax--punctuation syntax--definition syntax--string syntax--end syntax--shell"><span>)</span></span></span><span>\t</span><span class="syntax--string syntax--interpolated syntax--dollar syntax--shell"><span class="syntax--punctuation syntax--definition syntax--string syntax--begin syntax--shell"><span>$(</span></span><span>basename&nbsp;</span><span class="syntax--variable syntax--other syntax--normal syntax--shell"><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>$</span></span><span>reverse</span></span><span class="syntax--punctuation syntax--definition syntax--string syntax--end syntax--shell"><span>)</span></span></span><span class="syntax--punctuation syntax--definition syntax--string syntax--end syntax--shell"><span>&quot;</span></span></span><span>&nbsp;</span><span class="syntax--keyword syntax--operator syntax--redirect syntax--shell"><span>&gt;&gt;</span></span><span>&nbsp;</span><span class="syntax--variable syntax--other syntax--bracket syntax--shell"><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>${</span></span><span>HOME</span><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>}</span></span></span><span>/mothur/mothur.batch.files.txt</span></span></span></div><div class="line"><span class="syntax--source syntax--shell"><span class="syntax--meta syntax--scope syntax--for-in-loop syntax--shell"><span class="syntax--keyword syntax--control syntax--shell"><span>done</span></span></span></span></div><div class="line"><span class="syntax--source syntax--shell"><span>&nbsp;</span></span></div><div class="line"><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--line syntax--number-sign syntax--shell"><span class="syntax--punctuation syntax--definition syntax--comment syntax--shell"><span>#</span></span><span>Copy&nbsp;all&nbsp;quality-filtered&nbsp;files&nbsp;to&nbsp;mothur&nbsp;folder</span></span></span></div><div class="line"><span class="syntax--source syntax--shell"><span class="syntax--meta syntax--scope syntax--for-in-loop syntax--shell"><span class="syntax--keyword syntax--control syntax--shell"><span>for</span></span><span>&nbsp;</span><span class="syntax--variable syntax--other syntax--loop syntax--shell"><span>foldername</span></span><span>&nbsp;</span><span class="syntax--keyword syntax--control syntax--shell"><span>in</span></span><span>&nbsp;</span><span class="syntax--variable syntax--other syntax--normal syntax--shell"><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>$</span></span><span>subdirs</span></span><span class="syntax--keyword syntax--operator syntax--list syntax--shell"><span>;</span></span><span>&nbsp;</span><span class="syntax--keyword syntax--control syntax--shell"><span>do</span></span></span></span></div><div class="line"><span class="syntax--source syntax--shell"><span class="syntax--meta syntax--scope syntax--for-in-loop syntax--shell"><span>&nbsp;&nbsp;&nbsp;&nbsp;cp&nbsp;</span><span class="syntax--variable syntax--other syntax--bracket syntax--shell"><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>${</span></span><span>parent</span><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>}</span></span></span><span>/</span><span class="syntax--variable syntax--other syntax--bracket syntax--shell"><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>${</span></span><span>foldername</span><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>}</span></span></span><span>/q</span><span class="syntax--keyword syntax--operator syntax--glob syntax--shell"><span>*</span></span><span>R</span><span class="syntax--keyword syntax--operator syntax--glob syntax--shell"><span>*</span></span><span>&nbsp;</span><span class="syntax--variable syntax--other syntax--bracket syntax--shell"><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>${</span></span><span>HOME</span><span class="syntax--punctuation syntax--definition syntax--variable syntax--shell"><span>}</span></span></span><span>/mothur/</span></span></span></div><div class="line"><span class="syntax--source syntax--shell"><span class="syntax--meta syntax--scope syntax--for-in-loop syntax--shell"><span class="syntax--keyword syntax--control syntax--shell"><span>done</span></span></span></span></div></pre>
+<p>It is a little bit complicated, mainly because when the sequences come from the Illumina Basespace website, they have a lot of random numbers and letters associated with them. We want to change all the folder names and file names to something that is relevant to our analysis. I have only tested this on one dataset. We will have to see if we perform another sequencing run with UConn-MARS, if the dataset will look similar. Also if you perform sequencing with some other company, the data will probably look very different.</p>
+<p><strong>Anyways, for now just change line 7 to &quot;&quot;</strong></p>
+<p>Subsitute “${HOME}/mothur/” in line  7 with the directory path to where the Project Folder for Illumina basespace files are located.Inside that transfer the project folder (eg: TookerS2EBPR) from Illumina basespace to the mothur folder. Inside the project folder, there should be folders for each sample within which there are the forward and reverse reads.</p>
+<p>After this is done, we can now run perform the preprocessing.</p>
+<pre class="editor-colors lang-bash"><div class="line"><span class="syntax--source syntax--shell"><span>bash&nbsp;preprocess_sequences.sh</span></span></div></pre>
+<p>This will take a while. As long as you don&#39;t see any error/warning messages, sit back and relax (or read a paper!!)</p>
+<p>Once it is done, we should be ready to mothur these sequences!</p>
+<h1 id="mothur-analysis">Mothur analysis</h1>
+<p>Most of the steps in this tutorial is from the <a href="https://www.mothur.org/wiki/MiSeq_SOP">MiSeq SOP</a>. I am repeating it here for convenience. But you should follow the MiSeq SOP so that you clearly understand each step and the choice of parameters!</p>
+<p>Before you perform the following analysis, I would suggest you make sure all this analysis works by executing each step on a subset of your full analysis. I usually like to chose 2-4 samples to run the analysis on step by step and then perform a batch analysis for the whole dataset. If you have already done that, you can skip to the &quot;Batch Analysis&quot; section.</p>
+<p>You can change the input and output directory and the logfile name to whatever you want. You can also change the no.of processors to the no.of cores in the node. This is not very well annotated because I probably won&#39;t do as good a job as the <a href="https://www.mothur.org/wiki/MiSeq_SOP">MiSeq SOP</a> has done. So go there for explanation of each step!</p>
+<pre class="editor-colors lang-bash"><div class="line"><span class="syntax--source syntax--shell"><span>mothur</span></span></div><div class="line"><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--line syntax--number-sign syntax--shell"><span class="syntax--punctuation syntax--definition syntax--comment syntax--shell"><span>#</span></span><span>Now&nbsp;you&nbsp;should&nbsp;be&nbsp;inside&nbsp;mothur&nbsp;and&nbsp;you&nbsp;can&nbsp;run&nbsp;all&nbsp;these&nbsp;steps.</span></span></span></div><div class="line"><span class="syntax--source syntax--shell"><span>set.dir</span><span class="syntax--meta syntax--scope syntax--subshell syntax--shell"><span class="syntax--punctuation syntax--definition syntax--subshell syntax--shell"><span>(</span></span><span>input=/scratch/vnsriniv/RC_input_files,&nbsp;output=/scratch/vnsriniv/RC_midas_sansPrecluster_run</span><span class="syntax--punctuation syntax--definition syntax--subshell syntax--shell"><span>)</span></span></span></span></div><div class="line"><span class="syntax--source syntax--shell"><span>set.logfile</span><span class="syntax--meta syntax--scope syntax--subshell syntax--shell"><span class="syntax--punctuation syntax--definition syntax--subshell syntax--shell"><span>(</span></span><span>name=RC_midas_sansPrecluster_run_log</span><span class="syntax--punctuation syntax--definition syntax--subshell syntax--shell"><span>)</span></span></span></span></div><div class="line"><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--line syntax--number-sign syntax--shell"><span class="syntax--punctuation syntax--definition syntax--comment syntax--shell"><span>#</span></span><span>Make&nbsp;contigs&nbsp;from&nbsp;paired&nbsp;end&nbsp;sequences</span></span></span></div><div class="line"><span class="syntax--source syntax--shell"><span>make.contigs</span><span class="syntax--meta syntax--scope syntax--subshell syntax--shell"><span class="syntax--punctuation syntax--definition syntax--subshell syntax--shell"><span>(</span></span><span>file=mothur.batch.files.txt,&nbsp;processors=10</span><span class="syntax--punctuation syntax--definition syntax--subshell syntax--shell"><span>)</span></span></span></span></div><div class="line"><span class="syntax--source syntax--shell"><span>summary.seqs</span><span class="syntax--meta syntax--scope syntax--subshell syntax--shell"><span class="syntax--punctuation syntax--definition syntax--subshell syntax--shell"><span>(</span></span><span>fasta=current</span><span class="syntax--punctuation syntax--definition syntax--subshell syntax--shell"><span>)</span></span></span></span></div><div class="line"><span class="syntax--source syntax--shell"><span>screen.seqs</span><span class="syntax--meta syntax--scope syntax--subshell syntax--shell"><span class="syntax--punctuation syntax--definition syntax--subshell syntax--shell"><span>(</span></span><span>fasta=current,&nbsp;group=current,summary=current,maxambig=0,&nbsp;maxlength=275,minlength=225</span><span class="syntax--punctuation syntax--definition syntax--subshell syntax--shell"><span>)</span></span></span></span></div><div class="line"><span class="syntax--source syntax--shell"><span>unique.seqs</span><span class="syntax--meta syntax--scope syntax--subshell syntax--shell"><span class="syntax--punctuation syntax--definition syntax--subshell syntax--shell"><span>(</span></span><span>fasta=current</span><span class="syntax--punctuation syntax--definition syntax--subshell syntax--shell"><span>)</span></span></span></span></div><div class="line"><span class="syntax--source syntax--shell"><span>count.seqs</span><span class="syntax--meta syntax--scope syntax--subshell syntax--shell"><span class="syntax--punctuation syntax--definition syntax--subshell syntax--shell"><span>(</span></span><span>name=current,group=current</span><span class="syntax--punctuation syntax--definition syntax--subshell syntax--shell"><span>)</span></span></span></span></div><div class="line"><span class="syntax--source syntax--shell"><span>summary.seqs</span><span class="syntax--meta syntax--scope syntax--subshell syntax--shell"><span class="syntax--punctuation syntax--definition syntax--subshell syntax--shell"><span>(</span></span><span>count=current</span><span class="syntax--punctuation syntax--definition syntax--subshell syntax--shell"><span>)</span></span></span></span></div><div class="line"><span class="syntax--source syntax--shell"><span>align.seqs</span><span class="syntax--meta syntax--scope syntax--subshell syntax--shell"><span class="syntax--punctuation syntax--definition syntax--subshell syntax--shell"><span>(</span></span><span>fasta=current,reference=silva.nr_v123.v4.align,&nbsp;flip=t</span><span class="syntax--punctuation syntax--definition syntax--subshell syntax--shell"><span>)</span></span></span></span></div><div class="line"><span class="syntax--source syntax--shell"><span>summary.seqs</span><span class="syntax--meta syntax--scope syntax--subshell syntax--shell"><span class="syntax--punctuation syntax--definition syntax--subshell syntax--shell"><span>(</span></span><span>fasta=current,count=current</span><span class="syntax--punctuation syntax--definition syntax--subshell syntax--shell"><span>)</span></span></span></span></div><div class="line"><span class="syntax--source syntax--shell"><span>screen.seqs</span><span class="syntax--meta syntax--scope syntax--subshell syntax--shell"><span class="syntax--punctuation syntax--definition syntax--subshell syntax--shell"><span>(</span></span><span>fasta=current,count=current,summary=current,start=8,&nbsp;end=9582,&nbsp;maxhomop=8</span><span class="syntax--punctuation syntax--definition syntax--subshell syntax--shell"><span>)</span></span></span></span></div><div class="line"><span class="syntax--source syntax--shell"><span>summary.seqs</span><span class="syntax--meta syntax--scope syntax--subshell syntax--shell"><span class="syntax--punctuation syntax--definition syntax--subshell syntax--shell"><span>(</span></span><span>fasta=current,&nbsp;count=current</span><span class="syntax--punctuation syntax--definition syntax--subshell syntax--shell"><span>)</span></span></span></span></div><div class="line"><span class="syntax--source syntax--shell"><span>filter.seqs</span><span class="syntax--meta syntax--scope syntax--subshell syntax--shell"><span class="syntax--punctuation syntax--definition syntax--subshell syntax--shell"><span>(</span></span><span>fasta=current,&nbsp;vertical=T,trump=.</span><span class="syntax--punctuation syntax--definition syntax--subshell syntax--shell"><span>)</span></span></span></span></div><div class="line"><span class="syntax--source syntax--shell"><span>unique.seqs</span><span class="syntax--meta syntax--scope syntax--subshell syntax--shell"><span class="syntax--punctuation syntax--definition syntax--subshell syntax--shell"><span>(</span></span><span>fasta=current,&nbsp;count=current</span><span class="syntax--punctuation syntax--definition syntax--subshell syntax--shell"><span>)</span></span></span></span></div><div class="line"><span class="syntax--source syntax--shell"><span>pre.cluster</span><span class="syntax--meta syntax--scope syntax--subshell syntax--shell"><span class="syntax--punctuation syntax--definition syntax--subshell syntax--shell"><span>(</span></span><span>fasta=current,&nbsp;count=current,&nbsp;diffs=2</span><span class="syntax--punctuation syntax--definition syntax--subshell syntax--shell"><span>)</span></span></span></span></div><div class="line"><span class="syntax--source syntax--shell"><span>chimera.uchime</span><span class="syntax--meta syntax--scope syntax--subshell syntax--shell"><span class="syntax--punctuation syntax--definition syntax--subshell syntax--shell"><span>(</span></span><span>fasta=current,count=current,&nbsp;dereplicate=t</span><span class="syntax--punctuation syntax--definition syntax--subshell syntax--shell"><span>)</span></span></span></span></div><div class="line"><span class="syntax--source syntax--shell"><span>remove.seqs</span><span class="syntax--meta syntax--scope syntax--subshell syntax--shell"><span class="syntax--punctuation syntax--definition syntax--subshell syntax--shell"><span>(</span></span><span>fasta=current,accnos=current</span><span class="syntax--punctuation syntax--definition syntax--subshell syntax--shell"><span>)</span></span></span></span></div><div class="line"><span class="syntax--source syntax--shell"><span>classify.seqs</span><span class="syntax--meta syntax--scope syntax--subshell syntax--shell"><span class="syntax--punctuation syntax--definition syntax--subshell syntax--shell"><span>(</span></span><span>fasta=current,&nbsp;count=current,&nbsp;reference=silva.nr_v123.align,&nbsp;taxonomy=midas_mothur.tax,&nbsp;cutoff=80</span><span class="syntax--punctuation syntax--definition syntax--subshell syntax--shell"><span>)</span></span></span></span></div><div class="line"><span class="syntax--source syntax--shell"><span>remove.lineage</span><span class="syntax--meta syntax--scope syntax--subshell syntax--shell"><span class="syntax--punctuation syntax--definition syntax--subshell syntax--shell"><span>(</span></span><span>fasta=current,&nbsp;count=current,taxonomy=current,taxon=Chloroplast-Mitochondria-unknown-Eukaryota</span><span class="syntax--punctuation syntax--definition syntax--subshell syntax--shell"><span>)</span></span></span></span></div><div class="line"><span class="syntax--source syntax--shell"><span>cluster.split</span><span class="syntax--meta syntax--scope syntax--subshell syntax--shell"><span class="syntax--punctuation syntax--definition syntax--subshell syntax--shell"><span>(</span></span><span>fasta=current,&nbsp;count=current,taxonomy=current,&nbsp;splitmethod=classify,&nbsp;taxlevel=4,&nbsp;cutoff=0.03</span><span class="syntax--punctuation syntax--definition syntax--subshell syntax--shell"><span>)</span></span></span></span></div><div class="line"><span class="syntax--source syntax--shell"><span>make.shared</span><span class="syntax--meta syntax--scope syntax--subshell syntax--shell"><span class="syntax--punctuation syntax--definition syntax--subshell syntax--shell"><span>(</span></span><span>list=current,&nbsp;count=current,&nbsp;label=0.03</span><span class="syntax--punctuation syntax--definition syntax--subshell syntax--shell"><span>)</span></span></span></span></div><div class="line"><span class="syntax--source syntax--shell"><span>classify.otu</span><span class="syntax--meta syntax--scope syntax--subshell syntax--shell"><span class="syntax--punctuation syntax--definition syntax--subshell syntax--shell"><span>(</span></span><span>list=current,&nbsp;count=current,&nbsp;taxonomy=current,&nbsp;label=0.03</span><span class="syntax--punctuation syntax--definition syntax--subshell syntax--shell"><span>)</span></span></span></span></div><div class="line"><span class="syntax--source syntax--shell"><span>count.groups</span><span class="syntax--meta syntax--scope syntax--subshell syntax--shell"><span class="syntax--punctuation syntax--definition syntax--subshell syntax--shell"><span>(</span></span><span>shared=current</span><span class="syntax--punctuation syntax--definition syntax--subshell syntax--shell"><span>)</span></span></span></span></div></pre>
+<h2 id="running-mothur-in-batch-mode">Running mothur in batch mode</h2>
+<p>To run mothur in batch mode on cluster (we will assume you are running this on the Northeastern Discovery cluster which uses a SLURM job manager. Depending on the cluster you are using, the job submission method will be a little different).</p>
+<p>You can copy the list of commands (above) and store it as a .txt file. See the mothur_batch_v4_script.txt file for an example.</p>
+<p>Open a text editor and use the example script (below) to create a job submission script. Things that you might need to change include the job and error names and the partition name (depending on availability).</p>
+<pre class="editor-colors lang-bash"><div class="line"><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--line syntax--number-sign syntax--shebang syntax--shell"><span class="syntax--punctuation syntax--definition syntax--comment syntax--shebang syntax--shell"><span>#!</span></span><span>/bin/bash</span></span></span></div><div class="line"><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--line syntax--number-sign syntax--shell"><span class="syntax--punctuation syntax--definition syntax--comment syntax--shell"><span>#</span></span><span>SBATCH&nbsp;--job-name=mothur_batch_v4_script_run</span></span></span></div><div class="line"><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--line syntax--number-sign syntax--shell"><span class="syntax--punctuation syntax--definition syntax--comment syntax--shell"><span>#</span></span><span>SBATCH&nbsp;--error=mothur_batch_v4_script_run.error</span></span></span></div><div class="line"><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--line syntax--number-sign syntax--shell"><span class="syntax--punctuation syntax--definition syntax--comment syntax--shell"><span>#</span></span><span>SBATCH&nbsp;--time=12:00:00</span></span></span></div><div class="line"><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--line syntax--number-sign syntax--shell"><span class="syntax--punctuation syntax--definition syntax--comment syntax--shell"><span>#</span></span><span>SBATCH&nbsp;--partition=ser-par-10g-2</span></span></span></div><div class="line"><span class="syntax--source syntax--shell"><span class="syntax--comment syntax--line syntax--number-sign syntax--shell"><span class="syntax--punctuation syntax--definition syntax--comment syntax--shell"><span>#</span></span><span>SBATCH&nbsp;--ntasks=16</span></span></span></div><div class="line"><span class="syntax--source syntax--shell"><span>mothur&nbsp;mothur_batch_v4_script.txt</span></span></div></pre>
+<p>Save this file as mothur_batch_v4_job.sh</p>
+<p>Now we can submit this job by running the following command</p>
+<pre class="editor-colors lang-bash"><div class="line"><span class="syntax--source syntax--shell"><span>sbatch&nbsp;mothur_batch_v4_job.sh</span></span></div></pre></body>
+</html>
