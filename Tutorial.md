@@ -2,7 +2,7 @@
 layout: page
 title: A tutorial for 16S rRNA gene amplicon sequencing analysis
 modified: June 28th 2017
-excerpt: "Created by Varun Srinivasan, collaborator: Guangyu Li"
+excerpt: "Created by Varun Srinivasan, Contributor: Guangyu Li"
 comments: true
 ---
 
