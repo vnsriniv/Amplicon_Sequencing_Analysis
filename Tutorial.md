@@ -352,7 +352,7 @@ Note the lines start with #SBATCH work only when you run this script in batch mo
 ## Running mothur in batch mode
 To run mothur in batch mode on cluster (we will assume you are running this on the Northeastern Discovery cluster which uses a SLURM job manager. Depending on the cluster you are using, the job submission method will be a little different).
 
-If you want modify the batch mode settings, use any text editor to open mothur_batch_v4_job.sh and configure the # BATCH MODE SETTINGS section shown below:
+If you want modify the batch mode settings, use any text editor to open mothur_batch_v4_job.sh and configure the 'BATCH MODE SETTINGS' section shown as below:
 
 ```bash
 #!/bin/bash
