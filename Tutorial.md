@@ -135,7 +135,7 @@ In this script, there is a block of code (which is enclosed between lines of ###
 ```bash
 cd seq_analysis
 #We will first change a couple of things in the preprocess_sequences.sh file
-vi preprocess_sequences,sh
+vi preprocess_sequences.sh
 ```
 Now the script will look like this.
 
@@ -224,21 +224,21 @@ Most of the steps in this tutorial is from the [MiSeq SOP](https://www.mothur.or
 
 Before you perform the following analysis, I would suggest you make sure all this analysis works by executing each step on a subset of your full analysis. I usually like to chose 2-4 samples to run the analysis on step by step and then perform a batch analysis for the whole dataset. If you have already done that, you can skip to the "Batch Analysis" section.
 
-You can change the input and output directory and the logfile name to whatever you want. You can also change the no.of processors to the no.of cores in the node. This is not very well annotated because I probably won't do as good a job as the [MiSeq SOP](https://www.mothur.org/wiki/MiSeq_SOP) has done. So go there for explanation of each step!
+Below is mothur script template. Note this file is incomplete in information so cannot be run directly; instead, it will be configured by mothur_batch_v4_job.sh (shown in following section) before actual run. Only if you want change the workflow of mothur analysis the template may need certain modifications; otherwise you don't need to do any change to this template. The script is not very well annotated because I probably won't do as good a job as the [MiSeq SOP](https://www.mothur.org/wiki/MiSeq_SOP) has done. So go there for explanation of each step!
 
-```bash
-mothur
-#Now you should be inside mothur and you can run all these steps.
-set.dir(input=/scratch/vnsriniv/RC_input_files, output=/scratch/vnsriniv/RC_midas_sansPrecluster_run)
-set.logfile(name=RC_midas_sansPrecluster_run_log)
+```text
+#mothur_batch_v4_script.template
+#this is a template for mothur scripts, cannot be run directly; run mothur_batch_v4_job.sh instead!
+set.dir(input=$input_dir$, output=$output_dir$)
+set.logfile(name=$log_file$)
 #Make contigs from paired end sequences
-make.contigs(file=mothur.batch.files.txt, processors=10)
+make.contigs(file=$contig_file$, processors=$num_threads$)
 summary.seqs(fasta=current)
 screen.seqs(fasta=current, group=current,summary=current,maxambig=0, maxlength=275,minlength=225)
 unique.seqs(fasta=current)
 count.seqs(name=current,group=current)
 summary.seqs(count=current)
-align.seqs(fasta=current,reference=silva.nr_v123.v4.align, flip=t)
+align.seqs(fasta=current,reference=$align_ref$, flip=t)
 summary.seqs(fasta=current,count=current)
 screen.seqs(fasta=current,count=current,summary=current,start=8, end=9582, maxhomop=8)
 summary.seqs(fasta=current, count=current)
@@ -247,33 +247,129 @@ unique.seqs(fasta=current, count=current)
 pre.cluster(fasta=current, count=current, diffs=2)
 chimera.uchime(fasta=current,count=current, dereplicate=t)
 remove.seqs(fasta=current,accnos=current)
-classify.seqs(fasta=current, count=current, reference=MiDAS_v123_2.1.3.fasta, taxonomy=midas_mothur.tax, cutoff=80)
+classify.seqs(fasta=current, count=current, reference=$classify_ref$, taxonomy=$classify_tax$, cutoff=80)
 remove.lineage(fasta=current, count=current,taxonomy=current,taxon=Chloroplast-Mitochondria-unknown-Eukaryota)
 cluster.split(fasta=current, count=current,taxonomy=current, splitmethod=classify, taxlevel=4, cutoff=0.03)
 make.shared(list=current, count=current, label=0.03)
 classify.otu(list=current, count=current, taxonomy=current, label=0.03)
 count.groups(shared=current)
 ```
-## Running mothur in batch mode
-To run mothur in batch mode on cluster (we will assume you are running this on the Northeastern Discovery cluster which uses a SLURM job manager. Depending on the cluster you are using, the job submission method will be a little different).
 
-You can copy the list of commands (above) and store it as a .txt file. See the mothur_batch_v4_script.txt file for an example.
-
-Open a text editor and use the example script (below) to create a job submission script. Things that you might need to change include the job and error names and the partition name (depending on availability).
+Below is the mothur_batch_v4_job.sh file. In this file, the input and output directory and the logfile name can be changed to whatever you want. Also you can use any mothur contig file or databases for analysis. In addition, no.of processors can also be configured to the no.of cores in the node, just make sure the no. of processors defined by 'cpus-per-task' and 
+'num_threads' are consistant, and not exceed the actual no. of threads physically owned by your machine.
 
 ```bash
 #!/bin/bash
+# BATCH MODE SETTINGS -- below lines works only with SLURM (batch mode). If running on your own computer, just ignore them.
 #SBATCH --job-name=mothur_batch_v4_script_run
 #SBATCH --error=mothur_batch_v4_script_run.error
-#SBATCH --time=12:00:00
+#SBATCH --time=480
 #SBATCH --partition=ser-par-10g-2
-#SBATCH --ntasks=16
+#SBATCH --cpus-per-task=32
+#SBATCH --nodes=1
+# defining working directory here
+#SBATCH --workdir=/scratch/vnsriniv/
+#SBATCH --exclusive
+# END OF BATCH MODE SETTINGS
+
+# below are mothur script customizing
+# change direcorties/file here
+# working directory
+# mothur input directory
+input_dir="RC_input_files"
+# mothur output directory
+output_dir="RC_midas_sansPrecluster_run"
+# mothur log file
+log_file="RC_midas_sansPrecluster_run_log"
+# use number of threads; no exceed -c # or -n # defined above
+num_threads="32"
+
+# mothur contig file, this should be generated in former step
+contig_file="mothur.batch.files.txt"
+# alignment database
+align_ref="silva.nr_v123.v4.align"
+# classify databse; make them compatible
+classify_ref="MiDAS_v123_2.1.3.fasta"
+classify_tax="midas_mothur.tax"
+# end of customizing
+
+# anything below should be fine without changing
+# make sure all files exist
+CheckFile()
+{
+	echo -n "checking $1 .. "
+	if [[ (-f $1) || (-f $input_dir/$1) ]]; then
+		echo "OK"
+	else
+		echo "FAIL (can't find such file)"
+		exit 1
+	fi
+}
+
+CheckFile $contig_file
+CheckFile $align_ref
+CheckFile $classify_ref
+CheckFile $classify_tax
+
+# customize mothur script
+ReplaceVariable()
+# ReplaceVariable <file> <replace_var> <to_text>
+{
+	# to deal with the replacement, the most difficults are:
+	# 1) '\' in perl regex
+	# 2) '/' in perl regex
+	# solution:
+	# 1) '\' -> '\\' >> '\\' -> '\\\\' (do first)
+	# 2) '/' -> '\/' >> '\/' -> '\\\/' (then deal with this)
+	t=$(echo $3 | sed 's/\\/\\\\/g' | sed 's/\//\\\//g')
+	sed -i "s/$2/$t/g" $1
+}
+
+echo "configuring mothur script .."
+cp mothur_batch_v4_script.template mothur_batch_v4_script.txt
+ReplaceVariable mothur_batch_v4_script.txt '\$input_dir\$' $input_dir
+ReplaceVariable mothur_batch_v4_script.txt '\$output_dir\$' $output_dir
+ReplaceVariable mothur_batch_v4_script.txt '\$log_file\$' $log_file
+ReplaceVariable mothur_batch_v4_script.txt '\$num_threads\$' $num_threads
+ReplaceVariable mothur_batch_v4_script.txt '\$contig_file\$' $contig_file
+ReplaceVariable mothur_batch_v4_script.txt '\$align_ref\$' $align_ref
+ReplaceVariable mothur_batch_v4_script.txt '\$classify_ref\$' $classify_ref
+ReplaceVariable mothur_batch_v4_script.txt '\$classify_tax\$' $classify_tax
+
+echo "running mothur .."
 mothur mothur_batch_v4_script.txt
 ```
 
-Save this file as mothur_batch_v4_job.sh
+For running this script, simply run
 
-Now we can submit this job by running the following command
+```bash
+bash mothur_batch_v4_job.sh
+```
+
+in terminal, it will check the existance of all needed files, configure mothur script and finally run mothur. If any required file is missing, the execution will terminate. Though not necessary, it is recommended to run this script from the project directory as a good practice.
+Note the lines start with #SBATCH work only when you run this script in batch mode on a server uses a SLURM job manager. Otherwise (e.g. on your local machine), these lines are ignored.
+
+## Running mothur in batch mode
+To run mothur in batch mode on cluster (we will assume you are running this on the Northeastern Discovery cluster which uses a SLURM job manager. Depending on the cluster you are using, the job submission method will be a little different).
+
+If you want modify the batch mode settings, use any text editor to open mothur_batch_v4_job.sh and configure the # BATCH MODE SETTINGS section shown below:
+
+```bash
+#!/bin/bash
+# BATCH MODE SETTINGS -- below lines works only with SLURM (batch mode). If running on your own computer, just ignore them.
+#SBATCH --job-name=mothur_batch_v4_script_run
+#SBATCH --error=mothur_batch_v4_script_run.error
+#SBATCH --time=480
+#SBATCH --partition=ser-par-10g-2
+#SBATCH --cpus-per-task=32
+#SBATCH --nodes=1
+# defining working directory here
+#SBATCH --workdir=/scratch/vnsriniv/
+#SBATCH --exclusive
+# END OF BATCH MODE SETTINGS
+```
+
+Save changes then submit a batch job by running the following command
 
 ```bash
 sbatch mothur_batch_v4_job.sh
