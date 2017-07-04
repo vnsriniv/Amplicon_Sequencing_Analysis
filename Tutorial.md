@@ -278,7 +278,7 @@ Below is the mothur_batch_v4_job.sh file. In this file, the input and output dir
 # mothur input directory
 input_dir="/scratch/vnsriniv/RC_input_files" #have to add full directory path
 # mothur output directory
-output_dir="RC_midas_sansPrecluster_run"
+output_dir="/scratch/vnsriniv/RC_midas_sansPrecluster_run" #supply full directory path
 # mothur log file
 log_file="RC_midas_sansPrecluster_run_log"
 # use number of threads; cannot exceed -c # or -n # defined above
