@@ -11,27 +11,27 @@
 #SBATCH --exclusive
 # END OF BATCH MODE SETTINGS
 
-# below are mothur script customizing
-# change direcorties/file here
+# below are mothur script customizing settings
+# change directories/file here
 # working directory
 # mothur input directory
-input_dir="RC_input_files"
+input_dir="/scratch/vnsriniv/RC_input_files" #have to add full directory path
 # mothur output directory
 output_dir="RC_midas_sansPrecluster_run"
 # mothur log file
 log_file="RC_midas_sansPrecluster_run_log"
-# use number of threads; no exceed -c # or -n # defined above
+# use number of threads; cannot exceed -c # or -n # defined above
 num_threads="32"
 
 # mothur contig file, this should be generated in former step
 contig_file="mothur.batch.files.txt"
 # alignment database
 align_ref="silva.nr_v123.v4.align"
-# classify databse; make them compatible
+# classify databse; make sure that the _ref and _tax file are part of the same database
 classify_ref="MiDAS_v123_2.1.3.fasta"
 classify_tax="midas_mothur.tax"
 # end of customizing
-
+###########################################################################################
 # anything below should be fine without changing
 # make sure all files exist
 CheckFile()
