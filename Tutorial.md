@@ -224,7 +224,7 @@ Most of the steps in this tutorial is from the [MiSeq SOP](https://www.mothur.or
 
 Before you perform the following analysis, I would suggest you make sure all this analysis works by executing each step on a subset of your full analysis. I usually like to chose 2-4 samples to run the analysis on step by step and then perform a batch analysis for the whole dataset. If you have already done that, you can skip to the "Batch Analysis" section.
 
-Below is mothur script template. Note this file is incomplete in information so cannot be run directly; instead, it will be configured by mothur_batch_v4_job.sh (shown in following section) before actual run. Only if you want change the workflow of mothur analysis the template may need certain modifications; otherwise you don't need to do any change to this template. The script is not very well annotated because I probably won't do as good a job as the [MiSeq SOP](https://www.mothur.org/wiki/MiSeq_SOP) has done. So go there for explanation of each step!
+Below is a mothur script template. Note that this script cannot be run directly as-is. This script, however, will be run by another script called mothur_batch_v4_job.sh (which is shown in the next section).  If you want to change the workflow, you can modify the mothur_batch_v4_script.txt file. The script is not very well annotated because I probably won't do as good a job as the [MiSeq SOP](https://www.mothur.org/wiki/MiSeq_SOP) has done. So please refer to the SOP for any information.
 
 ```text
 #mothur_batch_v4_script.template
@@ -254,8 +254,8 @@ make.shared(list=current, count=current, label=0.03)
 classify.otu(list=current, count=current, taxonomy=current, label=0.03)
 count.groups(shared=current)
 ```
-
-Below is the mothur_batch_v4_job.sh file. In this file, the input and output directory and the logfile name can be changed to whatever you want. Also you can use any mothur contig file or databases for analysis. In addition, no.of processors can also be configured to the no.of cores in the node, just make sure the no. of processors defined by 'cpus-per-task' and 
+## Running mothur in batch mode
+Below is the mothur_batch_v4_job.sh file. In this file, the input and output directory and the logfile name can be changed to whatever you want. Also you can use any mothur contig file or databases for analysis. In addition, no.of processors can also be configured to the no.of cores in the node, just make sure the no. of processors defined by 'cpus-per-task' and
 'num_threads' are consistant, and not exceed the actual no. of threads physically owned by your machine.
 
 ```bash
@@ -272,27 +272,27 @@ Below is the mothur_batch_v4_job.sh file. In this file, the input and output dir
 #SBATCH --exclusive
 # END OF BATCH MODE SETTINGS
 
-# below are mothur script customizing
-# change direcorties/file here
+# below are mothur script customizing settings
+# change directories/file here
 # working directory
 # mothur input directory
-input_dir="RC_input_files"
+input_dir="/scratch/vnsriniv/RC_input_files" #have to add full directory path
 # mothur output directory
 output_dir="RC_midas_sansPrecluster_run"
 # mothur log file
 log_file="RC_midas_sansPrecluster_run_log"
-# use number of threads; no exceed -c # or -n # defined above
+# use number of threads; cannot exceed -c # or -n # defined above
 num_threads="32"
 
 # mothur contig file, this should be generated in former step
 contig_file="mothur.batch.files.txt"
 # alignment database
 align_ref="silva.nr_v123.v4.align"
-# classify databse; make them compatible
+# classify databse; make sure that the _ref and _tax file are part of the same database
 classify_ref="MiDAS_v123_2.1.3.fasta"
 classify_tax="midas_mothur.tax"
 # end of customizing
-
+###########################################################################################
 # anything below should be fine without changing
 # make sure all files exist
 CheckFile()
@@ -338,6 +338,7 @@ ReplaceVariable mothur_batch_v4_script.txt '\$classify_tax\$' $classify_tax
 
 echo "running mothur .."
 mothur mothur_batch_v4_script.txt
+
 ```
 
 For running this script, simply run
@@ -346,31 +347,5 @@ For running this script, simply run
 bash mothur_batch_v4_job.sh
 ```
 
-in terminal, it will check the existance of all needed files, configure mothur script and finally run mothur. If any required file is missing, the execution will terminate. Though not necessary, it is recommended to run this script from the project directory as a good practice.
-Note the lines start with #SBATCH work only when you run this script in batch mode on a server uses a SLURM job manager. Otherwise (e.g. on your local machine), these lines are ignored.
-
-## Running mothur in batch mode
-To run mothur in batch mode on cluster (we will assume you are running this on the Northeastern Discovery cluster which uses a SLURM job manager. Depending on the cluster you are using, the job submission method will be a little different).
-
-If you want modify the batch mode settings, use any text editor to open mothur_batch_v4_job.sh and configure the 'BATCH MODE SETTINGS' section shown as below:
-
-```bash
-#!/bin/bash
-# BATCH MODE SETTINGS -- below lines works only with SLURM (batch mode). If running on your own computer, just ignore them.
-#SBATCH --job-name=mothur_batch_v4_script_run
-#SBATCH --error=mothur_batch_v4_script_run.error
-#SBATCH --time=480
-#SBATCH --partition=ser-par-10g-2
-#SBATCH --cpus-per-task=32
-#SBATCH --nodes=1
-# defining working directory here
-#SBATCH --workdir=/scratch/vnsriniv/
-#SBATCH --exclusive
-# END OF BATCH MODE SETTINGS
-```
-
-Save changes then submit a batch job by running the following command
-
-```bash
-sbatch mothur_batch_v4_job.sh
-```
+This code will check the existance of all necessary files, configure the mothur script and finally run mothur. If any of the required files are missing, the execution will terminate. Though not necessary, it is recommended to run this script from the project directory as a good practice.
+Note that the lines start with #SBATCH work only when you run this script in batch mode on a server which uses a SLURM job manager. Otherwise (e.g. on your local machine), these lines are ignored.
