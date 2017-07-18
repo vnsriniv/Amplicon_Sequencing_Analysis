@@ -29,7 +29,7 @@ contig_file="mothur.batch.files.txt"
 align_ref="silva.nr_v123.v4.align"
 # classify databse; make sure that the _ref and _tax file are part of the same database
 classify_ref="MiDAS_v123_2.1.3.fasta"
-classify_tax="midas_mothur.tax"
+classify_tax="MiDAS_v123_2.1.3.mothur.tax"
 # end of customizing
 ###########################################################################################
 # anything below should be fine without changing

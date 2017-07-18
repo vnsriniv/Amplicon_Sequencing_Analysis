@@ -1,7 +1,7 @@
 ---
 layout: page
 title: A tutorial for 16S rRNA gene amplicon sequencing analysis
-modified: June 28th 2017
+modified: July 18th 2017
 excerpt: "Created by Varun Srinivasan, Contributor: Guangyu Li"
 comments: true
 ---
@@ -78,15 +78,15 @@ tar -xzvf Silva.nr_v123.tgz
 ```
 
 ## MiDAS Taxonomy
-The [MiDAS:Field Guide](http://www.midasfieldguide.org/) was created [McIlroy et al(2015)](http://database.oxfordjournals.org/content/2015/bav062.full?sid=6829f12b-4ae3-4258-acbe-d437059d55ac). This is a online resource that aims to help researchers and operators identify microorganisms relevant to wastewater treatment and understand their role. As part of this project, the researchers have also created the MiDAS taxonomy which is a manual curation of the SILVA taxonomy.
+The [MiDAS:Field Guide](http://www.midasfieldguide.org/) was created [McIlroy et al(2015)](http://database.oxfordjournals.org/content/2015/bav062.full?sid=6829f12b-4ae3-4258-acbe-d437059d55ac). This is a online resource that aims to help researchers and operators identify microorganisms relevant to wastewater treatment and understand their role. As part of this project, the researchers have also created the MiDAS taxonomy which is a manual curation of the SILVA taxonomy. The available version as of July 2017 is curated from [SILVA v123](https://www.arb-silva.de/documentation/release-123/).
 
-The MiDAS taxonomy comes formatted for QIIMe but not mothur. I created a script to format the taxonomy file to the mothur format (*github link coming soon*).
+The MiDAS taxonomy comes formatted for QIIME but not mothur. I have formatted the QIIME version to mothur format and will provide the files.
 
-I will provide a link to the pre-formatted taxonomy file and the aligned sequences (fasta file) to you.
+<mark>In case you are interested I created a script to format the taxonomy file to the mothur format- [MiDAS_qiimetomothur.sh](https://github.com/vnsriniv/Amplicon_Sequencing_Analysis/blob/master/custom_scripts/midas_qiimetomothur.sh) and use the script to format it to mothur.
+You can download the MiDAS files from the [MiDAS:Field Guide](http://www.midasfieldguide.org/) website- [MiDAS_S123_2.13](http://midasfieldguide.org/download/midas_v2_13/midas_s123_213tar.gz). I would check on the website first to make sure this is the latest version. </mark>
 
 
 Now we have installed all necessary softwares and downloaded all required files. Let us proceed with some preprocessing steps and the actual analysis.
-
 # Create Custom Alignment Database
 We will first customize the SILVA database to our region of interest (V4). This is mainly to reduce computational memory and time required during our downstream analysis.
 
@@ -290,7 +290,7 @@ contig_file="mothur.batch.files.txt"
 align_ref="silva.nr_v123.v4.align"
 # classify databse; make sure that the _ref and _tax file are part of the same database
 classify_ref="MiDAS_v123_2.1.3.fasta"
-classify_tax="midas_mothur.tax"
+classify_tax="MiDAS_v123_2.1.3.mothur.tax"
 # end of customizing
 ###########################################################################################
 # anything below should be fine without changing
@@ -338,7 +338,6 @@ ReplaceVariable mothur_batch_v4_script.txt '\$classify_tax\$' $classify_tax
 
 echo "running mothur .."
 mothur mothur_batch_v4_script.txt
-
 ```
 
 For running this script, simply run
